@@ -222,6 +222,22 @@ The project includes a comprehensive logging system with the following environme
 - `DRISHTI_LOG_ROTATE_MAX_FILES` - Maximum backup files (default: 5)
 - `DRISHTI_LOG_RETENTION_DAYS` - Days to retain logs (default: 14)
 
+**Python Module Logging (rose.py):**
+- `ROSE_LOG_LEVEL` - Log level for Rose module (`INFO`, `WARNING`, `ERROR`, `DEBUG`, `CRITICAL`)
+- `ROSE_LOG_FILE_PATH` - Path to Rose log file (default: `./logs/rose.log`)
+- `ROSE_LOG_ROTATE_MAX_BYTES` - Maximum bytes before rotation (default: 1048576)
+- `ROSE_LOG_ROTATE_MAX_FILES` - Maximum backup files (default: 5)
+- `ROSE_LOG_RETENTION_DAYS` - Days to retain logs (default: 14)
+- `ROSE_LOG_FORMAT` - Log format type: `structured` (default) or `simple`
+
+**Python Module Logging (rose.py):**
+- `ROSE_LOG_LEVEL` - Log level for Rose module (`INFO`, `WARNING`, `ERROR`, `DEBUG`, `CRITICAL`)
+- `ROSE_LOG_FILE_PATH` - Path to Rose log file (default: `./logs/rose.log`)
+- `ROSE_LOG_ROTATE_MAX_BYTES` - Maximum bytes before rotation (default: 1048576)
+- `ROSE_LOG_ROTATE_MAX_FILES` - Maximum backup files (default: 5)
+- `ROSE_LOG_RETENTION_DAYS` - Days to retain logs (default: 14)
+- `ROSE_LOG_FORMAT` - Log format type: `structured` (default) or `simple`
+
 **Example `.env` file:**
 ```bash
 # Client-side log level
@@ -233,10 +249,15 @@ LOG_ROTATE_MAX_BYTES=5242880    # 5MB
 LOG_ROTATE_MAX_FILES=10
 LOG_RETENTION_DAYS=30
 
-# Python logging
+# Python logging - Drishti module
 DRISHTI_LOG_LEVEL=INFO
 DRISHTI_LOG_FILE_PATH=./logs/drishti.log
 DRISHTI_LOG_RETENTION_DAYS=14
+
+# Python logging - Rose module
+ROSE_LOG_LEVEL=INFO
+ROSE_LOG_FILE_PATH=./logs/rose.log
+ROSE_LOG_FORMAT=structured
 ```
 
 ### SEO and Meta Tags
@@ -351,6 +372,31 @@ configure(
     retention_days=21
 )
 ```
+
+**Rose Module (Enhanced Python Logging):**
+```python
+from rose import get_logger, log_execution, LogContext
+
+logger = get_logger('MyModule')
+logger.info('Processing started', {'items': 100})
+
+# Use decorator for automatic execution logging
+@log_execution()
+def process_data(items):
+    return [x * 2 for x in items]
+
+# Use context manager for scoped logging
+with LogContext('BatchProcessing', level='DEBUG'):
+    logger.info('Processing batch')
+    # All logs here are at DEBUG level
+```
+
+**Rose Module Features:**
+- **Decorators**: `@log_execution()` for automatic function entry/exit logging
+- **Context Managers**: `LogContext()` for temporary configuration changes
+- **Type Safety**: `LogLevel` enum for type-safe level values
+- **Format Options**: Structured or simple log formats
+- **Full Compatibility**: Same environment variable pattern as Drishti
 
 ### Log Format
 
