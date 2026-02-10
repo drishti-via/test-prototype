@@ -1,0 +1,19 @@
+[2026-02-10T14:32:09.761Z] [INFO] [Rose] Rose logging module initialized
+[2026-02-10T14:32:09.761Z] [INFO] [Rose] Current configuration
+[2026-02-10T14:32:09.761Z] [INFO] [Rose] This is an info message
+[2026-02-10T14:32:09.761Z] [WARNING] [Rose] This is a warning message
+[2026-02-10T14:32:09.761Z] [ERROR] [Rose] This is an error message
+[2026-02-10T14:32:09.761Z] [INFO] [Calculator] Calculator module initialized
+[2026-02-10T14:32:09.761Z] [INFO] [example_function] Entering example_function
+[2026-02-10T14:32:09.761Z] [INFO] [example_function] Exiting example_function
+[2026-02-10T14:32:09.761Z] [INFO] [Rose] Decorator example completed
+[2026-02-10T14:32:09.762Z] [INFO] [BatchProcessing] Entered context: BatchProcessing
+[2026-02-10T14:32:09.762Z] [INFO] [Rose] Processing batch items
+[2026-02-10T14:32:09.762Z] [INFO] [Rose] Batch processing completed
+[2026-02-10T14:32:09.762Z] [INFO] [BatchProcessing] Exited context: BatchProcessing
+[2026-02-10T14:32:09.766Z] [ERROR] [Rose] Caught an exception {'error_type': 'ValueError'} 
+Traceback (most recent call last):
+  File "/home/user/workspace/test-prototype/rose.py", line 455, in main
+    raise ValueError('Example error for logging')
+ValueError: Example error for logging
+[2026-02-10T14:32:09.766Z] [INFO] [Rose] Rose module completed demonstration

@@ -1,5 +1,15 @@
 :root {
-  /* Colors */
+  /* Default/Dark Theme Colors */
+  --color-page-bg: #0f0f1a;
+  --color-surface: #1a1a2e;
+  --color-surface-2: #0f0f1a;
+  --color-border: #2a2a4a;
+  --color-text: #ffffff;
+  --color-muted: #888888;
+  
+  /* Color scheme for native browser controls */
+  color-scheme: dark;
+
   --color-primary-50: #f0f4ff;
   --color-primary-500: #667eea;
   --color-primary-600: #5a67d8;
@@ -15,6 +25,31 @@
   --color-green: #00d4aa;
   --color-red: #e74c3c;
   --color-blue: #ff6b6b;
+
+  /* Glass Effect (default dark theme) */
+  --glass-bg: rgba(26, 26, 46, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+  /* Hero Gradient */
+  --app-hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  /* Button Colors */
+  --color-button: #2a2a4a;
+  --color-button-hover: #3a3a5a;
+  --color-button-number: #3a3a5a;
+  --color-button-operator: #5a5a8a;
+  --color-button-scientific: #ff6b6b;
+  --color-button-scientific-hover: #ff5252;
+  --color-button-clear: #e74c3c;
+  --color-button-clear-hover: #c0392b;
+  --color-button-equals: #00d4aa;
+  --color-button-equals-hover: #00c49a;
+  --color-button-toggle: #4a4a6a;
+  --color-button-toggle-hover: #5a5a7a;
+  --color-button-angle: #2a2a4a;
+  --color-button-angle-hover: #3a3a5a;
+  --color-button-angle-active: #1a1a3a;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -39,6 +74,54 @@
   --transition-normal: 0.3s ease;
 }
 
+/* Apple Theme (Classic Mac Look) */
+:root[data-theme="apple"] {
+  /* Light, clean background */
+  --color-page-bg: #f5f5f7;
+  --color-surface: #ffffff;
+  --color-surface-2: #ffffff;
+  --color-border: #d2d2d7;
+  --color-text: #1d1d1f;
+  --color-muted: #86868b;
+  
+  /* Color scheme for native browser controls */
+  color-scheme: light;
+
+  /* iOS Blue for primary actions */
+  --color-primary-500: #007aff;
+  --color-primary-600: #005ecb;
+
+  /* Apple green for success */
+  --color-green: #34c759;
+  --color-red: #ff3b30;
+  --color-blue: #007aff;
+
+  /* Glass Effect (Apple-style) */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  /* Hero Gradient (Apple-style subtle gradient) */
+  --app-hero-gradient: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
+
+  /* Button Colors (Apple-style) */
+  --color-button: #f5f5f7;
+  --color-button-hover: #e8e8ed;
+  --color-button-number: #ffffff;
+  --color-button-operator: #f5f5f7;
+  --color-button-scientific: #ff9500;
+  --color-button-scientific-hover: #ff8800;
+  --color-button-clear: #ff3b30;
+  --color-button-clear-hover: #d73025;
+  --color-button-equals: #007aff;
+  --color-button-equals-hover: #005ecb;
+  --color-button-toggle: #f5f5f7;
+  --color-button-toggle-hover: #e8e8ed;
+  --color-button-angle: #f5f5f7;
+  --color-button-angle-hover: #e8e8ed;
+  --color-button-angle-active: #007aff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -53,7 +136,13 @@ body {
   font-family: var(--font-family-sans);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
-  color: var(--color-dark-text);
+  color: var(--color-text);
+  transition: background var(--transition-normal), color var(--transition-normal);
+}
+
+/* Theme-aware body background */
+[data-theme="apple"] body {
+  background: var(--app-hero-gradient);
 }
 
 a {
