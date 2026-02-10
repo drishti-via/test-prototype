@@ -4,6 +4,7 @@ export default function Footer() {
   const footerLinks = {
     product: [
       { href: '/calculator', label: 'Calculator' },
+      { href: '/converter', label: 'Converter' },
       { href: '/docs', label: 'Documentation' },
       { href: '/blog', label: 'Blog' },
     ],
@@ -25,11 +26,20 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand Section */}
           <div className="footer-section">
-            <Link href="/" className="text-2xl font-bold text-white hover:text-primary-400 transition-colors">
+            <Link href="/" className="text-2xl font-bold text-ink-400 hover:text-forest-500 transition-colors flex items-center gap-2">
+              {/* Small decorative leaf */}
+              <svg 
+                className="w-6 h-6 text-forest-500" 
+                viewBox="0 0 24 24" 
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8Z"/>
+              </svg>
               CalcMaster
             </Link>
-            <p className="mt-2 text-gray-400">
-              A powerful scientific calculator for everyone.
+            <p className="mt-2 text-ink-200">
+              A calm, capable calculator inspired by nature's beauty.
             </p>
           </div>
 

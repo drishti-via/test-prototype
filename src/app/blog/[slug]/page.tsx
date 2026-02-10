@@ -295,26 +295,26 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div>
       <div className="page-section">
         <div className="max-w-4xl mx-auto">
           <Link
             href="/blog"
-            className="text-primary-400 hover:text-primary-300 transition-colors mb-8 inline-block"
+            className="text-forest-500 hover:text-forest-600 transition-colors mb-8 inline-block"
           >
             ← Back to Blog
           </Link>
 
           <div className="mb-8">
-            <span className="px-3 py-1 bg-primary-600/20 text-primary-400 text-sm font-medium rounded">
+            <span className="px-3 py-1 bg-forest-100 text-forest-600 text-sm font-medium rounded">
               {post.category}
             </span>
           </div>
 
-          <h1 className="text-4xl font-bold text-white mb-4">
+          <h1 className="text-4xl font-bold text-ink-400 mb-4">
             {post.title}
           </h1>
-          <p className="text-gray-500 mb-12">
+          <p className="text-ink-100 mb-12">
             {new Date(post.date).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
@@ -322,8 +322,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             })}
           </p>
 
-          <article className="prose prose-invert prose-lg max-w-none">
-            <div className="text-gray-300 whitespace-pre-line leading-relaxed">
+          <article className="prose prose-lg max-w-none prose-headings:text-ink-400 prose-p:text-ink-400 prose-strong:text-ink-400 prose-pre:bg-cream-100 prose-code:text-forest-600">
+            <div className="text-ink-400 whitespace-pre-line leading-relaxed">
               {post.content}
             </div>
           </article>

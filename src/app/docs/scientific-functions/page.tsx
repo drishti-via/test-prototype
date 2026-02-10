@@ -46,52 +46,52 @@ export default function ScientificFunctionsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div>
       <div className="page-section">
         <div className="max-w-4xl mx-auto">
           <Link
             href="/docs"
-            className="text-primary-400 hover:text-primary-300 transition-colors mb-8 inline-block"
+            className="text-forest-500 hover:text-forest-600 transition-colors mb-8 inline-block"
           >
             ← Back to Documentation
           </Link>
 
-          <h1 className="text-4xl font-bold text-white mb-6">
+          <h1 className="text-4xl font-bold text-ink-400 mb-6">
             Scientific Functions
           </h1>
-          <p className="text-gray-400 mb-12 text-lg">
+          <p className="text-ink-200 mb-12 text-lg">
             Explore advanced trigonometric and mathematical functions available in the calculator.
           </p>
 
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-white mb-6">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-6">
               Available Functions
             </h2>
             <div className="space-y-6">
               {functions.map((func, index) => (
-                <div key={index} className="bg-dark-card border border-dark-border rounded-lg p-6">
+                <div key={index} className="card">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center">
-                      <span className="text-2xl font-bold text-white">{func.symbol}</span>
+                    <div className="w-16 h-16 bg-ghibli-meadow border border-forest-200 rounded-lg flex items-center justify-center">
+                      <span className="text-2xl font-bold text-forest-600">{func.symbol}</span>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white capitalize">
+                      <h3 className="text-xl font-semibold text-ink-400 capitalize">
                         {func.name}
                       </h3>
-                      <p className="text-gray-400">{func.description}</p>
+                      <p className="text-ink-200">{func.description}</p>
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-300 mb-2">Examples:</h4>
+                    <h4 className="text-sm font-semibold text-ink-300 mb-2">Examples:</h4>
                     <div className="space-y-2">
                       {func.examples.map((example, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-sm">
-                          <code className="px-2 py-1 bg-dark-bg border border-dark-border rounded font-mono text-primary-400">
+                          <code className="px-2 py-1 bg-cream-100 border border-cream-300 rounded font-mono text-forest-600">
                             {example.input}
                           </code>
-                          <span className="text-gray-500">({example.mode})</span>
-                          <span className="text-gray-400">→</span>
-                          <span className="text-white font-semibold">{example.result}</span>
+                          <span className="text-ink-200">({example.mode})</span>
+                          <span className="text-ink-200">→</span>
+                          <span className="text-ink-400 font-semibold">{example.result}</span>
                         </div>
                       ))}
                     </div>
@@ -102,18 +102,18 @@ export default function ScientificFunctionsPage() {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-white mb-6">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-6">
               Angle Modes
             </h2>
             <div className="grid gap-4 md:grid-cols-2">
               {angleModes.map((mode, index) => (
-                <div key={index} className="bg-dark-card border border-dark-border rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                <div key={index} className="card">
+                  <h3 className="text-lg font-semibold text-ink-400 mb-2">
                     {mode.mode}
                   </h3>
-                  <p className="text-gray-400 mb-3">{mode.description}</p>
-                  <div className="bg-dark-bg border border-dark-border rounded p-3">
-                    <p className="text-sm font-mono text-primary-400">{mode.examples}</p>
+                  <p className="text-ink-200 mb-3">{mode.description}</p>
+                  <div className="bg-cream-100 border border-cream-200 rounded p-3">
+                    <p className="text-sm font-mono text-forest-600">{mode.examples}</p>
                   </div>
                 </div>
               ))}
@@ -121,7 +121,7 @@ export default function ScientificFunctionsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-6">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-6">
               Frequently Asked Questions
             </h2>
             <div className="space-y-4">
@@ -151,9 +151,9 @@ export default function ScientificFunctionsPage() {
 
 function FAQCard({ question, answer }: { question: string; answer: string }) {
   return (
-    <div className="bg-dark-card border border-dark-border rounded-lg p-4">
-      <h3 className="text-lg font-semibold text-white mb-2">{question}</h3>
-      <p className="text-gray-400 text-sm">{answer}</p>
+    <div className="card">
+      <h3 className="text-lg font-semibold text-ink-400 mb-2">{question}</h3>
+      <p className="text-ink-200 text-sm">{answer}</p>
     </div>
   )
 }

@@ -33,13 +33,13 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div>
       <div className="page-section">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl font-bold text-white mb-4">
+          <h1 className="text-4xl font-bold text-ink-400 mb-4">
             Blog
           </h1>
-          <p className="text-gray-400 mb-12 text-lg">
+          <p className="text-ink-200 mb-12 text-lg">
             Tips, tutorials, and insights about mathematics and our calculator.
           </p>
 
@@ -48,13 +48,13 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="card block hover:border-primary-500/50 transition-all duration-300"
+                className="card block transition-all duration-300"
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2 py-1 bg-primary-600/20 text-primary-400 text-xs font-medium rounded">
+                  <span className="px-2 py-1 bg-forest-100 text-forest-600 text-xs font-medium rounded">
                     {post.category}
                   </span>
-                  <span className="text-gray-500 text-sm">
+                  <span className="text-ink-100 text-sm">
                     {new Date(post.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'short',

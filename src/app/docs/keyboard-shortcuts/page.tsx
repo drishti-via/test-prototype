@@ -30,40 +30,40 @@ export default function KeyboardShortcutsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div>
       <div className="page-section">
         <div className="max-w-4xl mx-auto">
           <Link
             href="/docs"
-            className="text-primary-400 hover:text-primary-300 transition-colors mb-8 inline-block"
+            className="text-forest-500 hover:text-forest-600 transition-colors mb-8 inline-block"
           >
             ← Back to Documentation
           </Link>
 
-          <h1 className="text-4xl font-bold text-white mb-6">
+          <h1 className="text-4xl font-bold text-ink-400 mb-6">
             Keyboard Shortcuts
           </h1>
-          <p className="text-gray-400 mb-12 text-lg">
+          <p className="text-ink-200 mb-12 text-lg">
             Master keyboard shortcuts for faster and more efficient calculations.
           </p>
 
-          <div className="mb-12 bg-dark-card border border-dark-border rounded-lg p-6">
-            <p className="text-gray-300">
-              <strong className="text-white">Pro Tip:</strong> Keyboard shortcuts are only active when you're on the Calculator page. This prevents interference with other page interactions like search and forms.
+          <div className="mb-12 card bg-ghibli-meadow">
+            <p className="text-ink-400">
+              <strong className="text-forest-600">Pro Tip:</strong> Keyboard shortcuts are only active when you're on the Calculator page. This prevents interference with other page interactions like search and forms.
             </p>
           </div>
 
           {categories.map((category, index) => (
             <section key={index} className="mb-10">
-              <h2 className="text-2xl font-semibold text-white mb-4">
+              <h2 className="text-2xl font-semibold text-ink-400 mb-4">
                 {category.title}
               </h2>
-              <div className="bg-dark-card border border-dark-border rounded-lg overflow-hidden">
-                <div className="divide-y divide-dark-border">
+              <div className="card">
+                <div className="divide-y divide-cream-200">
                   {category.shortcuts.map((shortcut, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-4 hover:bg-dark-border/50 transition-colors">
-                      <span className="text-gray-300">{shortcut.action}</span>
-                      <kbd className="px-3 py-1 bg-dark-bg border border-dark-border rounded text-sm font-mono text-primary-400">
+                    <div key={idx} className="flex items-center justify-between p-4 hover:bg-cream-50 transition-colors">
+                      <span className="text-ink-400">{shortcut.action}</span>
+                      <kbd className="px-3 py-1 bg-cream-200 border border-cream-300 rounded text-sm font-mono text-forest-600">
                         {shortcut.keys}
                       </kbd>
                     </div>
@@ -74,7 +74,7 @@ export default function KeyboardShortcutsPage() {
           ))}
 
           <section className="mt-12">
-            <h2 className="text-2xl font-semibold text-white mb-4">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-4">
               Tips for Efficient Use
             </h2>
             <div className="grid gap-4 md:grid-cols-2">
@@ -104,9 +104,9 @@ export default function KeyboardShortcutsPage() {
 
 function TipCard({ title, description }: { title: string; description: string }) {
   return (
-    <div className="bg-dark-card border border-dark-border rounded-lg p-4">
-      <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
-      <p className="text-gray-400 text-sm">{description}</p>
+    <div className="card">
+      <h3 className="text-lg font-semibold text-ink-400 mb-2">{title}</h3>
+      <p className="text-ink-200 text-sm">{description}</p>
     </div>
   )
 }

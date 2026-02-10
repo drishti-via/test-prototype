@@ -17,12 +17,12 @@ if (typeof window !== 'undefined') {
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Scientific Calculator - Free Online Math Tool',
-  description: 'A powerful scientific calculator with advanced functions. Perfect for students, engineers, and professionals. Free to use online.',
-  keywords: ['calculator', 'scientific calculator', 'math', 'trigonometry', 'online calculator'],
+  title: 'CalcMaster - A Calm Calculator Inspired by Nature',
+  description: 'A peaceful, capable calculator for everyday problem solving. Beautiful design meets powerful functionality. Free to use online.',
+  keywords: ['calculator', 'scientific calculator', 'math', 'trigonometry', 'online calculator', 'ghibli-inspired', 'nature calculator'],
   openGraph: {
-    title: 'Scientific Calculator - Free Online Math Tool',
-    description: 'A powerful scientific calculator with advanced functions.',
+    title: 'CalcMaster - A Calm Calculator Inspired by Nature',
+    description: 'A peaceful, capable calculator for everyday problem solving.',
     type: 'website',
   },
 }
