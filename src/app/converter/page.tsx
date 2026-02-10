@@ -17,13 +17,13 @@ export default function ConverterPage() {
   const categoryData = conversionData[selectedCategory]
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div>
       <div className="page-section">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-white mb-6">
+          <h1 className="text-4xl font-bold text-ink-400 mb-6">
             Unit Converter
           </h1>
-          <p className="text-gray-400 mb-12 text-lg">
+          <p className="text-ink-200 mb-12 text-lg">
             A powerful, easy-to-use tool for converting between different units of measurement.
             Perfect for students, engineers, and everyday use.
           </p>
@@ -39,61 +39,61 @@ export default function ConverterPage() {
 
           {/* Features Section */}
           <section className="mt-12">
-            <h2 className="text-2xl font-semibold text-white mb-6">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-6">
               Why Use Our Converter?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="card">
                 <div className="text-3xl mb-2">⚡</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-ink-400 mb-2">
                   Instant Results
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-ink-200 text-sm">
                   Get accurate conversions in real-time as you type.
                 </p>
               </div>
               <div className="card">
                 <div className="text-3xl mb-2">🎯</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-ink-400 mb-2">
                   High Precision
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-ink-200 text-sm">
                   Scientific-grade accuracy with up to 6 decimal places.
                 </p>
               </div>
               <div className="card">
                 <div className="text-3xl mb-2">📊</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-ink-400 mb-2">
                   8 Categories
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-ink-200 text-sm">
                   Convert length, weight, temperature, volume, and more.
                 </p>
               </div>
               <div className="card">
                 <div className="text-3xl mb-2">🔄</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-ink-400 mb-2">
                   Quick Swap
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-ink-200 text-sm">
                   Instantly swap source and target units with one click.
                 </p>
               </div>
               <div className="card">
                 <div className="text-3xl mb-2">📱</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-ink-400 mb-2">
                   Responsive
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-ink-200 text-sm">
                   Works perfectly on desktop, tablet, and mobile devices.
                 </p>
               </div>
               <div className="card">
                 <div className="text-3xl mb-2">🆓</div>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-ink-400 mb-2">
                   100% Free
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-ink-200 text-sm">
                   No ads, no registration, completely free to use.
                 </p>
               </div>
@@ -102,10 +102,10 @@ export default function ConverterPage() {
 
           {/* CTA Section */}
           <section className="mt-12 text-center">
-            <h2 className="text-2xl font-semibold text-white mb-4">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-4">
               Need More Tools?
             </h2>
-            <p className="text-gray-400 mb-8">
+            <p className="text-ink-200 mb-8">
               Check out our scientific calculator for advanced mathematical operations.
             </p>
             <Link href="/calculator" className="btn btn-primary">

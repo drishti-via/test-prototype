@@ -23,13 +23,13 @@ export default function DocsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div>
       <div className="page-section">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-white mb-4">
+          <h1 className="text-4xl font-bold text-ink-400 mb-4">
             Documentation
           </h1>
-          <p className="text-gray-400 mb-12 text-lg">
+          <p className="text-ink-200 mb-12 text-lg">
             Everything you need to know about using the Scientific Calculator.
           </p>
 
@@ -38,7 +38,7 @@ export default function DocsPage() {
               <Link
                 key={doc.href}
                 href={doc.href}
-                className="card hover:border-primary-500/50 transition-all duration-300"
+                className="card transition-all duration-300"
               >
                 <div className="text-4xl mb-4">{doc.icon}</div>
                 <h3 className="card-title">{doc.title}</h3>

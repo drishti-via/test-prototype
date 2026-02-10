@@ -116,7 +116,7 @@ export default function CalculatorWidget() {
 
   return (
     <div className="calculator" ref={widgetRef} aria-label="Scientific Calculator">
-      <h1 className="text-2xl text-white text-center mb-5 font-medium">
+      <h1 className="text-2xl text-ink-400 text-center mb-5 font-medium">
         Scientific Calculator
       </h1>
 

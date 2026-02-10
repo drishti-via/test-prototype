@@ -40,23 +40,23 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div>
       <div className="page-section">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-white mb-6">
+          <h1 className="text-4xl font-bold text-ink-400 mb-6">
             About CalcMaster
           </h1>
-          <p className="text-gray-400 mb-12 text-lg">
+          <p className="text-ink-200 mb-12 text-lg">
             We're on a mission to make mathematical tools more accessible to everyone.
           </p>
 
           {/* Mission Section */}
           <section className="mb-16">
-            <div className="bg-gradient-primary rounded-2xl p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-white mb-4">
+            <div className="bg-ghibli-meadow rounded-2xl p-8 md:p-12 border border-forest-200 shadow-soft">
+              <h2 className="text-3xl font-bold text-forest-600 mb-4">
                 Our Mission
               </h2>
-              <p className="text-white/90 text-lg leading-relaxed">
+              <p className="text-ink-400 text-lg leading-relaxed">
                 CalcMaster was built with a simple goal: to provide a powerful, easy-to-use
                 scientific calculator that anyone can access for free. We believe that mathematical
                 tools shouldn't cost a fortune or require a degree to use effectively.
@@ -66,17 +66,17 @@ export default function AboutPage() {
 
           {/* Features Section */}
           <section className="mb-16">
-            <h2 className="text-2xl font-semibold text-white mb-8">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-8">
               Why Choose CalcMaster?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {features.map((feature, index) => (
-                <div key={index} className="bg-dark-card border border-dark-border rounded-lg p-6">
+                <div key={index} className="card">
                   <div className="text-4xl mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">
+                  <h3 className="text-xl font-semibold text-ink-400 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-400">{feature.description}</p>
+                  <p className="text-ink-200">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -84,16 +84,16 @@ export default function AboutPage() {
 
           {/* Values Section */}
           <section className="mb-16">
-            <h2 className="text-2xl font-semibold text-white mb-8">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-8">
               Our Values
             </h2>
             <div className="space-y-6">
               {values.map((value, index) => (
-                <div key={index} className="bg-dark-card border border-dark-border rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-white mb-2">
+                <div key={index} className="card">
+                  <h3 className="text-xl font-semibold text-ink-400 mb-2">
                     {value.title}
                   </h3>
-                  <p className="text-gray-400">{value.description}</p>
+                  <p className="text-ink-200">{value.description}</p>
                 </div>
               ))}
             </div>
@@ -101,25 +101,25 @@ export default function AboutPage() {
 
           {/* Technology Section */}
           <section className="mb-16">
-            <h2 className="text-2xl font-semibold text-white mb-8">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-8">
               Built With Modern Technology
             </h2>
-            <div className="bg-dark-card border border-dark-border rounded-lg p-6">
-              <p className="text-gray-300 mb-4">
+            <div className="card">
+              <p className="text-ink-400 mb-4">
                 CalcMaster is built using cutting-edge web technologies to ensure the best performance and user experience:
               </p>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-400">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-ink-200">
                 <li className="flex items-center gap-2">
-                  <span className="text-primary-400">✓</span> Next.js for fast, responsive pages
+                  <span className="text-forest-500">✓</span> React for responsive pages
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-primary-400">✓</span> TypeScript for code reliability
+                  <span className="text-forest-500">✓</span> TypeScript for code reliability
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-primary-400">✓</span> Tailwind CSS for modern styling
+                  <span className="text-forest-500">✓</span> Tailwind CSS for Ghibli-inspired styling
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="text-primary-400">✓</span> React for interactive UI components
+                  <span className="text-forest-500">✓</span> Modern web standards
                 </li>
               </ul>
             </div>
@@ -127,11 +127,11 @@ export default function AboutPage() {
 
           {/* Team Section */}
           <section className="mb-16">
-            <h2 className="text-2xl font-semibold text-white mb-8">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-8">
               Our Team
             </h2>
-            <div className="bg-dark-card border border-dark-border rounded-lg p-8">
-              <p className="text-gray-300 leading-relaxed">
+            <div className="card">
+              <p className="text-ink-400 leading-relaxed">
                 CalcMaster is developed by a passionate team of engineers, designers, and mathematics
                 enthusiasts who believe in the power of accessible education tools. We're constantly
                 working on new features and improvements based on your feedback.
@@ -141,10 +141,10 @@ export default function AboutPage() {
 
           {/* CTA Section */}
           <section className="text-center">
-            <h2 className="text-2xl font-semibold text-white mb-4">
+            <h2 className="text-2xl font-semibold text-ink-400 mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-gray-400 mb-8">
+            <p className="text-ink-200 mb-8">
               Try our calculator today and experience the difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

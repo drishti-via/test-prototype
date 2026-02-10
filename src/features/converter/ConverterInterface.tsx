@@ -61,15 +61,15 @@ export default function ConverterInterface({ selectedCategory }: ConverterInterf
       <div className="flex items-center gap-3 mb-6">
         <span className="text-4xl">{categoryData.icon}</span>
         <div>
-          <h3 className="text-2xl font-bold text-white">{categoryData.name} Converter</h3>
-          <p className="text-gray-400">{categoryData.description}</p>
+          <h3 className="text-2xl font-bold text-ink-400">{categoryData.name} Converter</h3>
+          <p className="text-ink-200">{categoryData.description}</p>
         </div>
       </div>
 
       <div className="space-y-4">
         {/* Input Value */}
         <div>
-          <label className="block text-sm font-medium text-gray-400 mb-2">
+          <label className="block text-sm font-medium text-ink-200 mb-2">
             Enter Value
           </label>
           <input
@@ -77,7 +77,7 @@ export default function ConverterInterface({ selectedCategory }: ConverterInterf
             value={value}
             onChange={(e) => setValue(e.target.value)}
             placeholder="Enter a number"
-            className="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white text-lg focus:outline-none focus:border-primary-500 transition-colors"
+            className="w-full bg-cream-50 border border-cream-300 rounded-lg px-4 py-3 text-ink-400 text-lg focus:outline-none focus:border-forest-500 focus:ring-2 focus:ring-forest-200 transition-colors"
             step="any"
           />
         </div>
@@ -85,13 +85,13 @@ export default function ConverterInterface({ selectedCategory }: ConverterInterf
         {/* Unit Selectors */}
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-center">
           <div className="sm:col-span-2">
-            <label className="block text-sm font-medium text-gray-400 mb-2">
+            <label className="block text-sm font-medium text-ink-200 mb-2">
               From
             </label>
             <select
               value={fromUnit}
               onChange={(e) => setFromUnit(e.target.value)}
-              className="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors cursor-pointer"
+              className="w-full bg-cream-50 border border-cream-300 rounded-lg px-4 py-3 text-ink-400 focus:outline-none focus:border-forest-500 focus:ring-2 focus:ring-forest-200 transition-colors cursor-pointer"
             >
               {units.map(([key, unit]) => (
                 <option key={key} value={key}>
@@ -105,7 +105,7 @@ export default function ConverterInterface({ selectedCategory }: ConverterInterf
           <div className="flex justify-center py-3">
             <button
               onClick={handleSwapUnits}
-              className="p-2 rounded-full bg-dark-border hover:bg-primary-600 text-white transition-colors"
+              className="p-2 rounded-full bg-cream-200 hover:bg-forest-500 text-ink-400 hover:text-cream-50 transition-colors"
               aria-label="Swap units"
             >
               <svg
@@ -125,13 +125,13 @@ export default function ConverterInterface({ selectedCategory }: ConverterInterf
           </div>
 
           <div className="sm:col-span-2">
-            <label className="block text-sm font-medium text-gray-400 mb-2">
+            <label className="block text-sm font-medium text-ink-200 mb-2">
               To
             </label>
             <select
               value={toUnit}
               onChange={(e) => setToUnit(e.target.value)}
-              className="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 transition-colors cursor-pointer"
+              className="w-full bg-cream-50 border border-cream-300 rounded-lg px-4 py-3 text-ink-400 focus:outline-none focus:border-forest-500 focus:ring-2 focus:ring-forest-200 transition-colors cursor-pointer"
             >
               {units.map(([key, unit]) => (
                 <option key={key} value={key}>
@@ -143,21 +143,21 @@ export default function ConverterInterface({ selectedCategory }: ConverterInterf
         </div>
 
         {/* Result */}
-        <div className="mt-6 p-6 bg-gradient-primary rounded-lg">
-          <label className="block text-sm font-medium text-white/80 mb-2">
+        <div className="mt-6 p-6 bg-ghibli-meadow rounded-lg border border-forest-200 shadow-soft">
+          <label className="block text-sm font-medium text-forest-600 mb-2">
             Result
           </label>
           {result ? (
             <div className="flex flex-wrap items-baseline gap-2">
-              <span className="text-4xl font-bold text-white">
+              <span className="text-4xl font-bold text-forest-600">
                 {result}
               </span>
-              <span className="text-xl text-white/80">
+              <span className="text-xl text-forest-500">
                 {categoryData.units[toUnit]?.symbol}
               </span>
             </div>
           ) : (
-            <div className="text-4xl font-bold text-white/30">
+            <div className="text-4xl font-bold text-forest-300">
               ---
             </div>
           )}
@@ -165,11 +165,11 @@ export default function ConverterInterface({ selectedCategory }: ConverterInterf
 
         {/* Conversion Formula */}
         {result && value && (
-          <div className="mt-4 p-4 bg-dark-bg border border-dark-border rounded-lg">
-            <p className="text-sm text-gray-400">
-              <span className="text-white">{value} {categoryData.units[fromUnit]?.symbol}</span>
+          <div className="mt-4 p-4 bg-cream-100 border border-cream-200 rounded-lg">
+            <p className="text-sm text-ink-200">
+              <span className="text-ink-400">{value} {categoryData.units[fromUnit]?.symbol}</span>
               {' = '}
-              <span className="text-primary-400">{result} {categoryData.units[toUnit]?.symbol}</span>
+              <span className="text-forest-500">{result} {categoryData.units[toUnit]?.symbol}</span>
             </p>
           </div>
         )}

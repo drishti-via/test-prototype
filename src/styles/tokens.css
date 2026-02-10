@@ -1,21 +1,52 @@
 :root {
-  /* Colors */
-  --color-primary-50: #f0f4ff;
-  --color-primary-500: #667eea;
-  --color-primary-600: #5a67d8;
-
-  --color-secondary-500: #a855f7;
-
-  --color-dark-bg: #0f0f1a;
-  --color-dark-card: #1a1a2e;
-  --color-dark-border: #2a2a4a;
-  --color-dark-text: #ffffff;
-  --color-dark-muted: #888888;
-
-  --color-green: #00d4aa;
-  --color-red: #e74c3c;
-  --color-blue: #ff6b6b;
-
+  /* Studio Ghibli-inspired Palette - Nature forward, soft, whimsical */
+  
+  /* Backgrounds - Sky and Paper tones */
+  --color-bg-sky: #87CEEB;
+  --color-bg-sky-pale: #B8D4E8;
+  --color-bg-cream: #FDF6E3;
+  --color-bg-warm-paper: #F5E6D3;
+  --color-surface-paper: #FFFEF9;
+  --color-surface-warm: #FFF8F0;
+  
+  /* Accent Colors - Forest, Sunset, River */
+  --color-accent-forest: #4A7C59;
+  --color-accent-forest-dark: #3A6249;
+  --color-accent-forest-light: #6B9B7A;
+  --color-accent-sunset: #E8A87C;
+  --color-accent-sunset-light: #F2C6A8;
+  --color-accent-river: #7EC8E3;
+  --color-accent-sakura: #F4C2C2;
+  
+  /* Text Colors - Ink tones */
+  --color-ink: #2D3748;
+  --color-ink-soft: #4A5568;
+  --color-ink-muted: #718096;
+  --color-ink-light: #A0AEC0;
+  --color-ink-on-paper: #3D3D3D;
+  
+  /* Borders and Shadows */
+  --color-border-soft: #E8E0D5;
+  --color-border-medium: #D4C4B0;
+  --color-shadow-soft: rgba(74, 124, 89, 0.15);
+  --color-shadow-warm: rgba(232, 168, 124, 0.12);
+  --shadow-soft: 0 4px 20px var(--color-shadow-soft);
+  --shadow-lift: 0 8px 30px var(--color-shadow-warm);
+  --shadow-text: 0 2px 4px rgba(0, 0, 0, 0.08);
+  
+  /* Calculator Specific - Wood and Brass tones */
+  --color-wood-dark: #8B6914;
+  --color-wood-medium: #A67C00;
+  --color-wood-light: #CD853F;
+  --color-brass: #B5A642;
+  --color-brass-dark: #998A35;
+  
+  /* Semantic Colors */
+  --color-primary: var(--color-accent-forest);
+  --color-primary-hover: var(--color-accent-forest-dark);
+  --color-secondary: var(--color-accent-sunset);
+  --color-secondary-hover: var(--color-accent-sunset-light);
+  
   /* Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -23,20 +54,26 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
-
+  
   /* Typography */
-  --font-family-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-sans: 'Segoe UI', 'Georgia', 'Times New Roman', serif;
+  --font-family-display: 'Georgia', 'Times New Roman', serif;
   --font-family-mono: 'Courier New', monospace;
-
-  /* Border Radius */
+  
+  /* Border Radius - Softer, more organic */
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 15px;
-  --radius-xl: 20px;
-
-  /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Transitions - Gentler */
+  --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Texture - Paper grain effect */
+  --grain-opacity: 0.03;
 }
 
 * {
@@ -51,9 +88,24 @@ html {
 
 body {
   font-family: var(--font-family-sans);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(180deg, var(--color-bg-sky-pale) 0%, var(--color-bg-cream) 100%);
   min-height: 100vh;
-  color: var(--color-dark-text);
+  color: var(--color-ink-on-paper);
+  position: relative;
+}
+
+/* Subtle grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: var(--grain-opacity);
+  z-index: 9999;
 }
 
 a {

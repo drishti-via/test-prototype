@@ -1,19 +1,35 @@
-/* Calculator Component Styles */
+/* Calculator Component Styles - Ghibli Wood + Paper + Brass Theme */
 .calculator {
-  background: #1a1a2e;
-  border-radius: 20px;
+  background: linear-gradient(145deg, #F5E6D3 0%, #FFF8F0 100%);
+  border-radius: 24px;
   padding: 30px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 40px rgba(139, 105, 20, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
   max-width: 400px;
   width: 100%;
+  border: 2px solid #E8E0D5;
+  position: relative;
+}
+
+/* Subtle wood grain texture */
+.calculator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 22px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='wood'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23wood)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
 }
 
 .toggle-btn {
-  background: #4a4a6a;
-  color: #fff;
-  border: none;
+  background: linear-gradient(145deg, #CD853F 0%, #A67C00 100%);
+  color: #FFF8F0;
+  border: 2px solid #8B6914;
   padding: 12px 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   width: 100%;
   font-size: 0.95rem;
@@ -23,15 +39,20 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  box-shadow: 0 4px 12px rgba(139, 105, 20, 0.3);
+  position: relative;
+  z-index: 1;
 }
 
 .toggle-btn:hover {
-  background: #5a5a7a;
+  background: linear-gradient(145deg, #D9944F 0%, #B88C10 100%);
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 105, 20, 0.4);
 }
 
 .toggle-btn:active {
   transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(139, 105, 20, 0.3);
 }
 
 .scientific-panel {
@@ -51,22 +72,26 @@
 }
 
 .display {
-  background: #0f0f1a;
-  border-radius: 15px;
+  background: linear-gradient(145deg, #FDF6E3 0%, #F5E6D3 100%);
+  border-radius: 16px;
   padding: 20px;
   margin-bottom: 20px;
-  border: 2px solid #2a2a4a;
+  border: 3px solid #E8DCC8;
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  z-index: 1;
 }
 
 .display input {
   width: 100%;
   background: transparent;
   border: none;
-  color: #fff;
+  color: #3D3D3D;
   font-size: 2rem;
   text-align: right;
   outline: none;
-  font-family: 'Courier New', monospace;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .buttons {
@@ -74,67 +99,89 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
 }
 
 .btn {
   padding: 18px 10px;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  background: #2a2a4a;
-  color: #fff;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  color: #3D3D3D;
 }
 
 .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .btn:active {
-  transform: scale(0.95);
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn:focus-visible {
-  outline: 2px solid #667eea;
+  outline: 3px solid #4A7C59;
   outline-offset: 2px;
 }
 
 .btn.number {
-  background: #3a3a5a;
+  background: linear-gradient(145deg, #FFFEF9 0%, #F8EAD1 100%);
+  border: 2px solid #E8DCC8;
+}
+
+.btn.number:hover {
+  background: linear-gradient(145deg, #FFFFFF 0%, #F5E6D3 100%);
 }
 
 .btn.operator {
-  background: #5a5a8a;
+  background: linear-gradient(145deg, #E8A87C 0%, #D9955E 100%);
+  color: #FFF8F0;
+  border: 2px solid #C78346;
+}
+
+.btn.operator:hover {
+  background: linear-gradient(145deg, #F2B88C 0%, #E8A572 100%);
 }
 
 .btn.scientific {
-  background: #ff6b6b;
+  background: linear-gradient(145deg, #7EC8E3 0%, #63B2CD 100%);
+  color: #FFF8F0;
+  border: 2px solid #5AA8C7;
   flex: 1;
   padding: 15px;
 }
 
 .btn.scientific:hover {
-  background: #ff5252;
+  background: linear-gradient(145deg, #92D0E8 0%, #79B8D4 100%);
 }
 
 .btn.clear {
-  background: #e74c3c;
+  background: linear-gradient(145deg, #F4C2C2 0%, #E8B0B0 100%);
+  color: #3D3D3D;
+  border: 2px solid #D99E9E;
 }
 
 .btn.clear:hover {
-  background: #c0392b;
+  background: linear-gradient(145deg, #FFD2D2 0%, #F4C2C2 100%);
 }
 
 .btn.equals {
-  background: #00d4aa;
-  grid-row: span 2;
+  background: linear-gradient(145deg, #4A7C59 0%, #3A6249 100%);
+  color: #FFF8F0;
+  border: 2px solid #2D4A39;
+  box-shadow: 0 6px 16px rgba(74, 124, 89, 0.3);
 }
 
 .btn.equals:hover {
-  background: #00c49a;
+  background: linear-gradient(145deg, #6B9B7A 0%, #4A7C59 100%);
+  box-shadow: 0 8px 20px rgba(74, 124, 89, 0.4);
 }
 
 .row-span-2 {
@@ -145,39 +192,45 @@
   display: flex;
   gap: 10px;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .angle-btn {
-  background: #2a2a4a;
-  color: #888;
-  border: 2px solid transparent;
+  background: linear-gradient(145deg, #F8EAD1 0%, #F5E6D3 100%);
+  color: #718096;
+  border: 2px solid #E8DCC8;
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .angle-btn:focus-visible {
-  outline: 2px solid #667eea;
+  outline: 3px solid #4A7C59;
   outline-offset: 2px;
 }
 
 .angle-btn.active {
-  color: #00d4aa;
-  border-color: #00d4aa;
-  background: #1a1a3a;
+  color: #4A7C59;
+  border-color: #4A7C59;
+  background: linear-gradient(145deg, #D4E3D4 0%, #C4D3C4 100%);
+  box-shadow: 0 2px 8px rgba(74, 124, 89, 0.2);
 }
 
 .angle-btn:hover:not(.active) {
-  color: #fff;
-  background: #3a3a5a;
+  color: #2D3748;
+  background: linear-gradient(145deg, #FFFEF9 0%, #F5E6D3 100%);
 }
 
 /* Responsive design */
 @media (max-width: 400px) {
   .calculator {
     padding: 20px;
+    border-radius: 20px;
   }
 
   .btn {
