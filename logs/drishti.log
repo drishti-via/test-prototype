@@ -1,0 +1,20 @@
+[2026-02-10T12:22:53.161Z] [INFO] [Drishti] Drishti module starting
+[2026-02-10T12:22:53.161Z] [INFO] [Drishti] Configuration
+[2026-02-10T12:22:53.161Z] [INFO] [Drishti] Performing example operation
+[2026-02-10T12:22:53.161Z] [INFO] [Calculator] Starting calculation
+[2026-02-10T12:22:53.161Z] [INFO] [Calculator] Calculation result
+[2026-02-10T12:22:53.161Z] [INFO] [Drishti] Calculation completed
+[2026-02-10T12:22:53.161Z] [INFO] [Calculator] Starting calculation
+[2026-02-10T12:22:53.162Z] [WARNING] [Calculator] Denominator is zero, returning 0
+[2026-02-10T12:22:53.162Z] [WARNING] [Drishti] Division by zero avoided
+[2026-02-10T12:22:53.162Z] [INFO] [Drishti] Drishti module completed successfully
+[2026-02-10T12:23:04.175Z] [INFO] [Drishti] Drishti module starting
+[2026-02-10T12:23:04.175Z] [INFO] [Drishti] Configuration
+[2026-02-10T12:23:04.175Z] [INFO] [Drishti] Performing example operation
+[2026-02-10T12:23:04.176Z] [INFO] [Calculator] Starting calculation
+[2026-02-10T12:23:04.176Z] [INFO] [Calculator] Calculation result
+[2026-02-10T12:23:04.176Z] [INFO] [Drishti] Calculation completed
+[2026-02-10T12:23:04.176Z] [INFO] [Calculator] Starting calculation
+[2026-02-10T12:23:04.176Z] [WARNING] [Calculator] Denominator is zero, returning 0
+[2026-02-10T12:23:04.176Z] [WARNING] [Drishti] Division by zero avoided
+[2026-02-10T12:23:04.176Z] [INFO] [Drishti] Drishti module completed successfully

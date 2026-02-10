@@ -3,6 +3,16 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { initializeLogger } from '@/lib/logger'
+
+// Initialize logger once at app startup
+if (typeof window !== 'undefined') {
+  // Client-side: initialize with console logging only
+  initializeLogger()
+} else {
+  // Server-side: would initialize with file logging if env vars are set
+  initializeLogger()
+}
 
 const inter = Inter({ subsets: ['latin'] })
 
