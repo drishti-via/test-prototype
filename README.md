@@ -193,9 +193,51 @@ npm start
 ## 🔧 Configuration
 
 ### Environment Variables
+
+#### Basic Configuration
 No environment variables are required for basic functionality. You can add:
 - `NEXT_PUBLIC_SITE_URL` - Production URL for SEO
 - `NEXT_PUBLIC_ANALYTICS_ID` - Analytics tracking
+
+#### Logging Configuration
+
+The project includes a comprehensive logging system with the following environment variables:
+
+**Log Levels (Client & Server):**
+- `NEXT_PUBLIC_LOG_LEVEL` - Controls logging verbosity (`info`, `warning`, `error`)
+  - `info` - All log messages (default)
+  - `warning` - Only warnings and errors
+  - `error` - Only errors
+
+**File-based Logging (Server/Node.js only):**
+- `LOG_FILE_PATH` - Path to log file (e.g., `./logs/app.log`)
+- `LOG_ROTATE_MAX_BYTES` - Maximum file size before rotation (default: 1048576 = 1MB)
+- `LOG_ROTATE_MAX_FILES` - Maximum number of rotated files to keep (default: 5)
+- `LOG_RETENTION_DAYS` - Days to retain log files before automatic cleanup (default: 14)
+
+**Python Module Logging (Drishti.py):**
+- `DRISHTI_LOG_LEVEL` - Log level for Python module (`INFO`, `WARNING`, `ERROR`, `DEBUG`, `CRITICAL`)
+- `DRISHTI_LOG_FILE_PATH` - Path to Python log file (default: `./logs/drishti.log`)
+- `DRISHTI_LOG_ROTATE_MAX_BYTES` - Maximum bytes before rotation (default: 1048576)
+- `DRISHTI_LOG_ROTATE_MAX_FILES` - Maximum backup files (default: 5)
+- `DRISHTI_LOG_RETENTION_DAYS` - Days to retain logs (default: 14)
+
+**Example `.env` file:**
+```bash
+# Client-side log level
+NEXT_PUBLIC_LOG_LEVEL=info
+
+# Server-side file logging
+LOG_FILE_PATH=./logs/app.log
+LOG_ROTATE_MAX_BYTES=5242880    # 5MB
+LOG_ROTATE_MAX_FILES=10
+LOG_RETENTION_DAYS=30
+
+# Python logging
+DRISHTI_LOG_LEVEL=INFO
+DRISHTI_LOG_FILE_PATH=./logs/drishti.log
+DRISHTI_LOG_RETENTION_DAYS=14
+```
 
 ### SEO and Meta Tags
 The site includes:
@@ -207,6 +249,189 @@ The site includes:
 ## 📄 License
 
 This is a prototype project for demonstration purposes.
+
+## 📝 Logging System Documentation
+
+### Overview
+
+The project implements a comprehensive, structured logging system for both JavaScript/TypeScript and Python codebases. Key features include:
+
+- **Structured Logging**: Consistent format with timestamps, levels, and metadata
+- **Log Levels info, warning, error
+- **Timestamped Entries**: ISO 8601 format (`2024-01-15T10:30:45.123Z`)
+- **Multiple Sinks**: Console (always available) and File (Node.js/server)
+- **Scoped Loggers**: Create module-specific loggers for better traceability
+- **Log Rotation**: Size-based rotation to prevent disk bloat
+- **Retention Policies**: Automatic cleanup of old log files
+- **Environment Configuration**: Full control via environment variables
+
+### Log Level Hierarchy
+
+Lower levels include higher levels:
+- `info` (lowest) - General informational messages
+- `warning` - Warnings and issues that don't stop execution
+- `error` (highest) - Errors and critical failures
+
+Example: When level is set to `warning`, `info` messages are suppressed but `warning` and `error` messages are shown.
+
+### TypeScript/JavaScript Usage
+
+**Basic Logging:**
+```typescript
+import { logger } from '@/lib/logger'
+
+logger.info('User logged in', { userId: 123, accountType: 'premium' })
+logger.warning('High memory usage detected', { mb: 8192, threshold: 8192 })
+logger.error('Database connection failed', error, { retries: 3 })
+```
+
+**Scoped Logger:**
+```typescript
+import { createLogger } from '@/lib/logger'
+
+const engineLogger = createLogger('CalculatorEngine')
+engineLogger.info('Calculation performed', { result: 42 })
+// Output: [2024-01-15T10:30:45.123Z] [INFO] [CalculatorEngine] Calculation performed {"result":42}
+```
+
+**Configuration:**
+```typescript
+import { logger } from '@/lib/logger'
+
+// Configure logger
+logger.configure({
+  level: 'warning',
+  file: {
+    path: './logs/app.log',
+    rotate: {
+      maxBytes: 5242880,  // 5MB
+      maxFiles: 10
+    },
+    retentionDays: 30
+  }
+})
+
+// Change level at runtime
+logger.setLevel('error')
+```
+
+### Python Usage
+
+**Basic Logging:**
+```python
+from Drishti import get_logger
+
+logger = get_logger('MyModule')
+logger.info('Processing started', {'items': 100})
+logger.warning('Cache miss', {'key': 'user_123'})
+logger.error('Failed to process', exc_info=True)
+```
+
+**Scoped Logger:**
+```python
+from Drishti import get_logger
+
+calc_logger = get_logger('Calculator')
+calc_logger.info('Calculation completed', {'result': 42})
+```
+
+**Runtime Configuration:**
+```python
+from Drishti import set_level, configure
+
+# Change level
+set_level('ERROR')
+
+# Full configuration
+configure(
+    level='DEBUG',
+    file_path='./logs/custom.log',
+    max_bytes=2097152,  # 2MB
+    max_files=7,
+    retention_days=21
+)
+```
+
+### Log Format
+
+All log entries follow this structured format:
+
+```
+[timestamp] [level] [source] message {metadata}
+```
+
+**Example outputs:**
+
+```
+[2024-01-15T10:30:45.123Z] [INFO] [CalculatorEngine] Calculator engine initialized
+[2024-01-15T10:30:46.456Z] [INFO] [CalculatorWidget] Number input {"value":"5","currentValue":"5"}
+[2024-01-15T10:30:47.789Z] [WARNING] [CalculatorEngine] Division by zero attempted {"previousValue":10,"currentValue":0,"operator":"/"}
+[2024-01-15T10:30:48.012Z] [ERROR] [CalculatorEngine] Calculation failed Error: Division by zero {"previousValue":10,"operator":"/","currentValue":"0"}
+Error: Division by zero
+    at CalculatorEngine.performCalculation (engine.ts:102)
+    ...
+```
+
+### Client vs Server Behavior
+
+**Client-side (Browser):**
+- Console-only logging (no file access)
+- Level controlled via `NEXT_PUBLIC_LOG_LEVEL`
+- Safe for production with `NEXT_PUBLIC_LOG_LEVEL=error`
+
+**Server-side (Node.js):**
+- Console + File logging supported
+- Full rotation and retention features
+- Automatic log cleanup on startup
+- Environment-based configuration
+
+### Log Rotation & Retention
+
+**Size-based Rotation:**
+- When log file exceeds `maxBytes`, it's renamed with `.1` suffix
+- Existing rotated files are shifted (`.1` → `.2`, etc.)
+- Files beyond `maxFiles` are deleted automatically
+
+**Time-based Retention:**
+- Logs older than `retentionDays` are deleted on startup
+- Works with rotated files
+- Prevents disk space issues
+
+**Example Rotation Pattern:**
+```
+logs/app.log          - Current logs
+logs/app.log.1        - First rotation (1st backup)
+logs/app.log.2        - Second rotation (2nd backup)
+logs/app.log.3        - Third rotation (3rd backup, oldest)
+```
+
+### Best Practices
+
+1. **Use Scoped Loggers:** Create a logger for each module/file
+   ```typescript
+   const logger = createLogger('AuthService')
+   ```
+
+2. **Include Relevant Metadata:** Pass context as metadata
+   ```typescript
+   logger.info('User action', { userId, action, timestamp })
+   ```
+
+3. **Log at Appropriate Levels:**
+   - Use `info` for normal operations
+   - Use `warning` for recoverable issues
+   - Use `error` for failures requiring attention
+
+4. **Pass Error Objects:** Always pass actual Error objects to `error()`
+   ```typescript
+   logger.error('Operation failed', error, { operation: 'save' })
+   ```
+
+5. **Production Configuration:** Set appropriate levels for production
+   ```bash
+   NEXT_PUBLIC_LOG_LEVEL=error    # Client
+   LOG_FILE_PATH=./logs/app.log  # Server
+   ```
 
 ## 🤝 Contributing
 

@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { createCalculator, CalculatorState } from './engine'
+import { createLogger } from '@/lib/logger'
+
+const logger = createLogger('CalculatorWidget')
 
 export default function CalculatorWidget() {
   const [calculator] = useState(createCalculator)
@@ -12,40 +15,52 @@ export default function CalculatorWidget() {
   const handleNumber = (value: string) => {
     calculator.inputNumber(value)
     setState(calculator.getState())
+    logger.info('Number input', { value, currentValue: calculator.getState().currentValue })
   }
 
   const handleOperator = (value: string) => {
     calculator.handleOperator(value)
     setState(calculator.getState())
+    logger.info('Operator input', { operator: value, previousValue: calculator.getState().previousValue })
   }
 
   const handleScientificFunction = (func: 'sin' | 'cos' | 'tan') => {
     calculator.handleScientificFunction(func)
     setState(calculator.getState())
+    logger.info('Scientific function called', { function: func })
   }
 
   const handleCalculate = () => {
+    const previousState = calculator.getState()
     calculator.calculate()
-    setState(calculator.getState())
+    const newState = calculator.getState()
+    setState(newState)
+    if (newState.error) {
+      logger.warning('Calculation resulted in error', { error: newState.error, previousState })
+    }
   }
 
   const handleClear = () => {
     calculator.clear()
     setState(calculator.getState())
+    logger.info('Calculator cleared by user')
   }
 
   const handleBackspace = () => {
     calculator.backspace()
     setState(calculator.getState())
+    logger.info('Backspace pressed')
   }
 
   const handleAngleMode = (mode: 'deg' | 'rad') => {
     calculator.setAngleMode(mode)
     setState(calculator.getState())
+    logger.info('Angle mode toggled by user', { mode })
   }
 
   const toggleScientificPanel = () => {
     setScientificPanelVisible(!scientificPanelVisible)
+    logger.info('Scientific panel toggled', { visible: !scientificPanelVisible })
   }
 
   const getDisplayValue = () => calculator.getDisplayValue()
@@ -81,11 +96,22 @@ export default function CalculatorWidget() {
       } else if (key === 'Backspace') {
         e.preventDefault()
         handleBackspace()
+      } else {
+        // Log unexpected keys for debugging (only in development or if info level is enabled)
+        logger.info('Keyboard key ignored (not a calculator key)', { key })
       }
     }
 
     document.addEventListener('keydown', handleKeyboard)
     return () => document.removeEventListener('keydown', handleKeyboard)
+  }, [])
+
+  // Log widget mount
+  useEffect(() => {
+    logger.info('Calculator widget mounted', { scientificPanelVisible })
+    return () => {
+      logger.info('Calculator widget unmounted')
+    }
   }, [])
 
   return (

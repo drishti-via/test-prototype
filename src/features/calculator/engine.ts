@@ -3,6 +3,8 @@
  * Can be tested independently and reused across different UI implementations
  */
 
+import { createLogger } from '@/lib/logger'
+
 export type AngleMode = 'deg' | 'rad'
 export type Operator = '+' | '-' | '*' | '/' | null
 export type ScientificFunction = 'sin' | 'cos' | 'tan'
@@ -16,11 +18,15 @@ export interface CalculatorState {
   error: string | null
 }
 
+// Scoped logger for the CalculatorEngine
+const logger = createLogger('CalculatorEngine')
+
 export class CalculatorEngine {
   private state: CalculatorState
 
   constructor() {
     this.state = this.getInitialState()
+    logger.info('Calculator engine initialized')
   }
 
   private getInitialState(): CalculatorState {
@@ -43,6 +49,7 @@ export class CalculatorEngine {
     if (value === 'pi') {
       newValue = Math.PI.toString()
       this.state.waitingForOperand = true
+      logger.info('Pi constant input', { value: Math.PI })
     } else {
       if (this.state.waitingForOperand) {
         newValue = value
@@ -58,6 +65,7 @@ export class CalculatorEngine {
 
   handleOperator(nextOperator: string): CalculatorState {
     if (!['+', '-', '*', '/'].includes(nextOperator)) {
+      logger.warning('Invalid operator attempted', { operator: nextOperator })
       return this.getState()
     }
 
@@ -94,6 +102,11 @@ export class CalculatorEngine {
         return prev * current
       case '/':
         if (current === 0) {
+          logger.warning('Division by zero attempted', {
+            previousValue: prev,
+            currentValue: current,
+            operator: this.state.operator
+          })
           throw new Error('Division by zero')
         }
         return prev / current
@@ -106,13 +119,25 @@ export class CalculatorEngine {
     if (this.state.operator && this.state.previousValue !== null) {
       try {
         const result = this.performCalculation()
+        logger.info('Calculation performed', {
+          previousValue: this.state.previousValue,
+          operator: this.state.operator,
+          inputValue: this.state.currentValue,
+          result
+        })
         this.state.currentValue = this.formatResult(result)
         this.state.previousValue = null
         this.state.operator = null
         this.state.waitingForOperand = true
         this.state.error = null
       } catch (error) {
-        this.state.error = error instanceof Error ? error.message : 'Error'
+        const errorMessage = error instanceof Error ? error.message : 'Error'
+        logger.error('Calculation failed', error instanceof Error ? error : new Error(errorMessage), {
+          previousValue: this.state.previousValue,
+          operator: this.state.operator,
+          currentValue: this.state.currentValue
+        })
+        this.state.error = errorMessage
         this.state.currentValue = '0'
         this.state.previousValue = null
         this.state.operator = null
@@ -138,11 +163,24 @@ export class CalculatorEngine {
           break
       }
 
+      logger.info('Scientific function executed', {
+        function: func,
+        inputValue: value,
+        angleMode: this.state.angleMode,
+        result
+      })
+
       this.state.currentValue = this.formatResult(result)
       this.state.waitingForOperand = true
       this.state.error = null
     } catch (error) {
-      this.state.error = error instanceof Error ? error.message : 'Error'
+      const errorMessage = error instanceof Error ? error.message : 'Error'
+      logger.error('Scientific function failed', error instanceof Error ? error : new Error(errorMessage), {
+        function: func,
+        inputValue: value,
+        angleMode: this.state.angleMode
+      })
+      this.state.error = errorMessage
       this.state.currentValue = '0'
     }
 
@@ -178,6 +216,7 @@ export class CalculatorEngine {
   }
 
   clear(): CalculatorState {
+    logger.info('Calculator cleared')
     this.state = this.getInitialState()
     return this.getState()
   }
@@ -198,6 +237,7 @@ export class CalculatorEngine {
   }
 
   setAngleMode(mode: AngleMode): CalculatorState {
+    logger.info('Angle mode changed', { from: this.state.angleMode, to: mode })
     this.state.angleMode = mode
     return this.getState()
   }
