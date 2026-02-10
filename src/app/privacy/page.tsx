@@ -3,17 +3,17 @@ export default function PrivacyPage() {
     <div className="min-h-screen bg-dark-bg">
       <div className="page-section">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold text-white mb-6">
-            Privacy Policy
+          <h1 className="text-4xl font-bold font-y2k text-yellow-300 mb-6" style={{textShadow: '2px 2px 0 #000000'}}>
+            ★ Privacy Policy ★
           </h1>
-          <p className="text-gray-400 mb-12">
+          <p className="text-cyan-300 mb-12 font-mono" style={{background: '#000000', padding: '8px 16px', border: '2px solid #00ffff'}}>
             Last updated: {new Date().toLocaleDateString()}
           </p>
 
-          <div className="prose prose-invert prose-lg max-w-none text-gray-300 space-y-8">
+          <div className="prose prose-invert prose-lg max-w-none text-black font-serif space-y-8">
             <section>
-              <h2 className="text-2xl font-semibold text-white mb-4">
-                Information We Collect
+              <h2 className="text-2xl font-bold font-y2k text-yellow-300 mb-4" style={{textShadow: '2px 2px 0 #000000'}}>
+                ★ Information We Collect ★
               </h2>
               <p>
                 CalcMaster is a completely client-side application. All calculations are performed
@@ -22,8 +22,8 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-white mb-4">
-                Cookies and Local Storage
+              <h2 className="text-2xl font-bold font-y2k text-yellow-300 mb-4" style={{textShadow: '2px 2px 0 #000000'}}>
+                ★ Cookies and Local Storage ★
               </h2>
               <p>
                 We may use cookies and local storage solely for the purpose of:
@@ -36,8 +36,8 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-white mb-4">
-                Third-Party Services
+              <h2 className="text-2xl font-bold font-y2k text-yellow-300 mb-4" style={{textShadow: '2px 2px 0 #000000'}}>
+                ★ Third-Party Services ★
               </h2>
               <p>
                 We do not use third-party services that collect your personal information. The calculator
@@ -46,8 +46,8 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-white mb-4">
-                Data Security
+              <h2 className="text-2xl font-bold font-y2k text-yellow-300 mb-4" style={{textShadow: '2px 2px 0 #000000'}}>
+                ★ Data Security ★
               </h2>
               <p>
                 Since we do not collect or store your data, there is no personal information to secure.
@@ -56,8 +56,8 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-white mb-4">
-                Your Rights
+              <h2 className="text-2xl font-bold font-y2k text-yellow-300 mb-4" style={{textShadow: '2px 2px 0 #000000'}}>
+                ★ Your Rights ★
               </h2>
               <p>
                 You have the right to:

@@ -36,10 +36,10 @@ export default function BlogPage() {
     <div className="min-h-screen bg-dark-bg">
       <div className="page-section">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl font-bold text-white mb-4">
-            Blog
+          <h1 className="text-4xl font-bold font-y2k text-yellow-300 mb-4" style={{textShadow: '2px 2px 0 #000000'}}>
+            ★ Blog ★
           </h1>
-          <p className="text-gray-400 mb-12 text-lg">
+          <p className="text-cyan-300 mb-12 text-lg font-mono" style={{background: '#000000', padding: '8px 16px', border: '2px solid #00ffff'}}>
             Tips, tutorials, and insights about mathematics and our calculator.
           </p>
 
@@ -48,13 +48,13 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="card block hover:border-primary-500/50 transition-all duration-300"
+                className="card block y2k-link"
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2 py-1 bg-primary-600/20 text-primary-400 text-xs font-medium rounded">
+                  <span className="px-2 py-1 y2k-bevel text-blue-800 text-xs font-bold font-y2k">
                     {post.category}
                   </span>
-                  <span className="text-gray-500 text-sm">
+                  <span className="text-black text-sm font-mono">
                     {new Date(post.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'short',
@@ -62,7 +62,7 @@ export default function BlogPage() {
                     })}
                   </span>
                 </div>
-                <h2 className="card-title text-xl mb-2">{post.title}</h2>
+                <h2 className="card-title text-xl mb-2">★ {post.title}</h2>
                 <p className="card-description">{post.excerpt}</p>
               </Link>
             ))}
@@ -75,7 +75,7 @@ export default function BlogPage() {
 
 export async function generateMetadata() {
   return {
-    title: 'Blog - CalcMaster',
+    title: '★ Blog ★ - CalcMaster',
     description: 'Tips, tutorials, and insights about mathematics and our scientific calculator.',
   }
 }

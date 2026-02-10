@@ -27,7 +27,7 @@ export default function Header() {
     <nav className="header" role="navigation" aria-label="Main navigation">
       <div className="header-content">
         <Link href="/" className="logo">
-          CalcMaster
+          ★ CalcMaster ★
         </Link>
 
         {/* Desktop Navigation */}
@@ -38,14 +38,14 @@ export default function Header() {
               href={link.href}
               className="nav-link"
             >
-              {link.label}
+              [{link.label}]
             </Link>
           ))}
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden p-2 y2k-bevel"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
@@ -77,16 +77,16 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-dark-card border-t border-dark-border">
+        <div className="md:hidden y2k-bevel border-t-2 border-gray-600">
           <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-2 px-4 text-gray-300 hover:bg-dark-border rounded-md transition-colors"
+                className="block py-2 px-4 y2k-link font-serif hover:bg-gray-300"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {link.label}
+                &gt; {link.label}
               </Link>
             ))}
           </div>

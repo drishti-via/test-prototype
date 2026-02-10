@@ -25,21 +25,21 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand Section */}
           <div className="footer-section">
-            <Link href="/" className="text-2xl font-bold text-white hover:text-primary-400 transition-colors">
-              CalcMaster
+            <Link href="/" className="text-2xl font-bold font-y2k text-blue-800 hover:text-blue-600">
+              ★ CalcMaster ★
             </Link>
-            <p className="mt-2 text-gray-400">
-              A powerful scientific calculator for everyone.
+            <p className="mt-2 text-black font-serif">
+              Welcome to my calculator! &lt;marquee&gt; Best in 1999! &lt;/marquee&gt;
             </p>
           </div>
 
           {/* Product Links */}
           <div className="footer-section">
-            <h3>Product</h3>
+            <h3>★ Product ★</h3>
             <ul>
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link href={link.href}>• {link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -47,11 +47,11 @@ export default function Footer() {
 
           {/* Company Links */}
           <div className="footer-section">
-            <h3>Company</h3>
+            <h3>★ Company ★</h3>
             <ul>
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link href={link.href}>• {link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -59,11 +59,11 @@ export default function Footer() {
 
           {/* Resources Links */}
           <div className="footer-section">
-            <h3>Resources</h3>
+            <h3>★ Resources ★</h3>
             <ul>
               {footerLinks.resources.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link href={link.href}>• {link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -72,7 +72,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} CalcMaster. All rights reserved.</p>
+        <p>★ © {new Date().getFullYear()} CalcMaster ★ Best viewed in Netscape Navigator 4.0 ★</p>
       </div>
     </footer>
   )
