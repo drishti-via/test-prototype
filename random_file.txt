@@ -1,7 +1,0 @@
-This is a random file with some content.
-
-It contains a few lines of text to demonstrate a basic file structure.
-
-Random number: 42
-Random word: serendipity
-Random fact: The first computer bug was an actual moth found in a computer in 1947.
