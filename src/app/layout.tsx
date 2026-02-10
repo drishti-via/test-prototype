@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -14,14 +13,12 @@ if (typeof window !== 'undefined') {
   initializeLogger()
 }
 
-const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
-  title: 'Scientific Calculator - Free Online Math Tool',
-  description: 'A powerful scientific calculator with advanced functions. Perfect for students, engineers, and professionals. Free to use online.',
+  title: '★ Scientific Calculator ★ - Free Online Math Tool',
+  description: 'A powerful scientific calculator with advanced functions. Best viewed in Netscape Navigator 4.0! Perfect for students, engineers, and professionals. Free to use online.',
   keywords: ['calculator', 'scientific calculator', 'math', 'trigonometry', 'online calculator'],
   openGraph: {
-    title: 'Scientific Calculator - Free Online Math Tool',
+    title: '★ Scientific Calculator ★ - Free Online Math Tool',
     description: 'A powerful scientific calculator with advanced functions.',
     type: 'website',
   },
@@ -34,7 +31,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <div className="layout-container">
           <Header />
           <main className="main-content">

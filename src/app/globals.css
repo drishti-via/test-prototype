@@ -4,9 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
+/* Base styles - 90s Web Aesthetic */
 body {
-  @apply antialiased;
+  @apply font-serif;
+  background: #000080;
 }
 
 /* Layout */
@@ -20,48 +21,67 @@ body {
   flex: 1;
 }
 
-/* Header styles */
+/* Header styles - 90s Windows style */
 .header {
-  @apply sticky top-0 z-50 bg-dark-bg/90 backdrop-blur-sm border-b border-dark-border;
+  @apply sticky top-0 z-50;
+  background: #c0c0c0;
+  border-top: 3px solid #ffffff;
+  border-left: 3px solid #ffffff;
+  border-right: 3px solid #404040;
+  border-bottom: 3px solid #404040;
 }
 
 .header-content {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  @apply flex items-center justify-between h-16;
+  @apply max-w-7xl mx-auto px-4 py-2;
+  @apply flex items-center justify-between;
 }
 
 .logo {
-  @apply text-2xl font-bold text-white;
-  @apply hover:text-primary-400 transition-colors duration-200;
+  @apply text-2xl font-bold font-y2k;
+  color: #000080;
+  text-shadow: 1px 1px 0 #ffffff;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: #800080;
 }
 
 .nav-menu {
-  @apply hidden md:flex items-center space-x-8;
+  @apply hidden md:flex items-center space-x-6;
 }
 
 .nav-link {
-  @apply text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200;
+  @apply text-sm font-serif text-black;
+  text-decoration: underline;
+  color: #0000ff;
 }
 
 .nav-link:hover {
-  @apply text-primary-400;
+  color: #ff0000;
 }
 
-/* Footer styles */
+.nav-link:visited {
+  color: #800080;
+}
+
+/* Footer styles - 90s style */
 .footer {
-  @apply bg-dark-bg border-t border-dark-border mt-auto;
+  @apply mt-auto;
+  background: #c0c0c0;
+  border-top: 3px solid #404040;
 }
 
 .footer-content {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  @apply max-w-7xl mx-auto px-4 py-6;
 }
 
 .footer-grid {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6;
 }
 
 .footer-section h3 {
-  @apply text-lg font-semibold text-white mb-4;
+  @apply text-lg font-bold font-y2k text-black mb-3;
 }
 
 .footer-section ul {
@@ -69,57 +89,151 @@ body {
 }
 
 .footer-section a {
-  @apply text-gray-400 hover:text-white transition-colors duration-200;
+  @apply text-sm font-serif text-blue-600;
+  text-decoration: underline;
+}
+
+.footer-section a:visited {
+  color: #800080;
+}
+
+.footer-section a:hover {
+  color: #ff0000;
 }
 
 .footer-bottom {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6;
-  @apply border-t border-dark-border;
-  @apply text-center text-gray-500 text-sm;
+  @apply max-w-7xl mx-auto px-4 py-4;
+  @apply border-t-2 border-gray-600;
+  @apply text-center text-black text-sm font-serif;
 }
 
 /* Page sections */
 .page-section {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  @apply max-w-7xl mx-auto px-4 py-8;
 }
 
 .hero-section {
-  @apply text-center py-20;
+  @apply text-center py-12;
 }
 
 .hero-title {
-  @apply text-4xl md:text-6xl font-bold text-white mb-6;
+  @apply text-4xl md:text-5xl font-bold font-y2k text-yellow-300 mb-6;
+  text-shadow: 2px 2px 0 #000000;
 }
 
 .hero-subtitle {
-  @apply text-xl text-gray-300 mb-8 max-w-2xl mx-auto;
+  @apply text-xl text-cyan-300 mb-8 max-w-2xl mx-auto;
+  font-family: 'Courier New', monospace;
+  background: #000000;
+  padding: 8px 16px;
+  border: 2px solid #00ffff;
 }
 
-/* Cards */
+/* Cards - 90s Windows 95 style */
 .card {
-  @apply bg-dark-card rounded-lg border border-dark-border;
-  @apply p-6 hover:border-primary-500/50 transition-all duration-300;
+  background: #c0c0c0;
+  border-top: 3px solid #ffffff;
+  border-left: 3px solid #ffffff;
+  border-right: 3px solid #404040;
+  border-bottom: 3px solid #404040;
+  @apply p-6;
 }
 
 .card-title {
-  @apply text-xl font-semibold text-white mb-2;
+  @apply text-lg font-bold font-y2k text-blue-800 mb-2;
 }
 
 .card-description {
-  @apply text-gray-400;
+  @apply text-sm font-serif text-black;
 }
 
-/* Buttons */
+/* Buttons - 90s 3D button style */
 .btn {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium;
-  @apply transition-all duration-200;
-  @apply hover:transform hover:-translate-y-0.5;
+  @apply inline-flex items-center justify-center px-6 py-2 font-serif font-bold;
+  background: #c0c0c0;
+  border-top: 3px solid #ffffff;
+  border-left: 3px solid #ffffff;
+  border-right: 3px solid #404040;
+  border-bottom: 3px solid #404040;
+  color: #000000;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #d0d0d0;
+  text-decoration: underline;
+}
+
+.btn:active {
+  border-top: 3px solid #404040;
+  border-left: 3px solid #404040;
+  border-right: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
 }
 
 .btn-primary {
-  @apply bg-primary-600 text-white hover:bg-primary-700;
+  background: #0000ff;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #1a1aff;
 }
 
 .btn-secondary {
-  @apply bg-gray-700 text-white hover:bg-gray-600;
+  background: #00ffff;
+  color: #000000;
+}
+
+.btn-secondary:hover {
+  background: #1affff;
+}
+
+/* Y2K specific utility classes */
+.y2k-bevel {
+  border-top: 3px solid #ffffff;
+  border-left: 3px solid #ffffff;
+  border-right: 3px solid #404040;
+  border-bottom: 3px solid #404040;
+}
+
+.y2k-bevel-inset {
+  border-top: 3px solid #404040;
+  border-left: 3px solid #404040;
+  border-right: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+}
+
+.y2k-link {
+  color: #0000ff;
+  text-decoration: underline;
+}
+
+.y2k-link:visited {
+  color: #800080;
+}
+
+.y2k-link:hover {
+  color: #ff0000;
+}
+
+/* Scrollbar - simple 90s style */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #c0c0c0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #808080;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+}
+
+::-webkit-scrollbar-button {
+  background: #c0c0c0;
 }

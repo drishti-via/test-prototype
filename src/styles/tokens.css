@@ -1,20 +1,35 @@
 :root {
-  /* Colors */
-  --color-primary-50: #f0f4ff;
-  --color-primary-500: #667eea;
-  --color-primary-600: #5a67d8;
+  /* Y2K/90s Color Palette */
+  --color-primary-50: #e8f4f8;
+  --color-primary-500: #4a9eff;
+  --color-primary-600: #3a8eef;
 
-  --color-secondary-500: #a855f7;
+  --color-secondary-500: #cc66ff;
 
-  --color-dark-bg: #0f0f1a;
-  --color-dark-card: #1a1a2e;
-  --color-dark-border: #2a2a4a;
-  --color-dark-text: #ffffff;
-  --color-dark-muted: #888888;
+  /* 90s Web Colors */
+  --color-dark-bg: #000080; /* Navy blue - classic 90s */
+  --color-dark-card: #c0c0c0; /* Windows 95 gray */
+  --color-dark-border: #808080; /* Darker gray for 3D bevel */
+  --color-dark-text: #000000;
+  --color-dark-muted: #404040;
 
-  --color-green: #00d4aa;
-  --color-red: #e74c3c;
-  --color-blue: #ff6b6b;
+  --color-green: #00ff00;
+  --color-red: #ff0000;
+  --color-blue: #0000ff;
+
+  /* 90s Accent Colors */
+  --color-y2k-teal: #00ffff;
+  --color-y2k-pink: #ff69b4;
+  --color-y2k-lime: #00ff00;
+  --color-y2k-purple: #9932cc;
+  --color-y2k-yellow: #ffff00;
+  --color-y2k-silver: #c0c0c0;
+
+  /* 90s Chrome/Metallic */
+  --color-chrome-light: #ffffff;
+  --color-chrome-medium: #c0c0c0;
+  --color-chrome-dark: #808080;
+  --color-chrome-darkest: #404040;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -24,19 +39,20 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
 
-  /* Typography */
-  --font-family-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-family-mono: 'Courier New', monospace;
+  /* 90s Typography */
+  --font-family-sans: 'Times New Roman', Times, serif;
+  --font-family-mono: 'Courier New', Courier, monospace;
+  --font-family-header: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
 
-  /* Border Radius */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 15px;
-  --radius-xl: 20px;
+  /* Border Radius - 90s had sharper corners */
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 5px;
+  --radius-xl: 8px;
 
-  /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
+  /* Transitions - minimal as requested */
+  --transition-fast: 0.1s ease;
+  --transition-normal: 0.1s ease;
 }
 
 * {
@@ -51,19 +67,21 @@ html {
 
 body {
   font-family: var(--font-family-sans);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000080;
   min-height: 100vh;
-  color: var(--color-dark-text);
+  color: #000000;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: #0000ff;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #800080;
 }
 
 button {
   font-family: inherit;
   cursor: pointer;
-  border: none;
-  outline: none;
 }
