@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Scientific Calculator</h1>
+        
+        <!-- Toggle Button -->
+        <button class="toggle-btn" id="toggleScientific">
+            <span id="toggleIcon">+</span> Scientific Functions
+        </button>
+        
+        <!-- Scientific Panel (hidden by default) -->
+        <div class="scientific-panel" id="scientificPanel">
+            <button class="btn scientific" data-func="sin">sin</button>
+            <button class="btn scientific" data-func="cos">cos</button>
+            <button class="btn scientific" data-func="tan">tan</button>
+        </div>
+        
+        <!-- Display -->
+        <div class="display">
+            <input type="text" id="display" readonly value="0">
+        </div>
+        
+        <!-- Basic Calculator Buttons -->
+        <div class="buttons">
+            <button class="btn number" data-value="7">7</button>
+            <button class="btn number" data-value="8">8</button>
+            <button class="btn number" data-value="9">9</button>
+            <button class="btn operator" data-value="/">/</button>
+            <button class="btn clear" data-action="clear">C</button>
+            
+            <button class="btn number" data-value="4">4</button>
+            <button class="btn number" data-value="5">5</button>
+            <button class="btn number" data-value="6">6</button>
+            <button class="btn operator" data-value="*">*</button>
+            <button class="btn operator" data-value="-">-</button>
+            
+            <button class="btn number" data-value="1">1</button>
+            <button class="btn number" data-value="2">2</button>
+            <button class="btn number" data-value="3">3</button>
+            <button class="btn operator" data-value="+">+</button>
+            <button class="btn equals" data-action="calculate">=</button>
+            
+            <button class="btn number" data-value="0">0</button>
+            <button class="btn number" data-value=".">.</button>
+            <button class="btn operator" data-value="pi">π</button>
+            <button class="btn clear" data-action="backspace">⌫</button>
+        </div>
+        
+        <!-- Angle Mode Toggle -->
+        <div class="angle-mode">
+            <button class="angle-btn" id="degBtn" data-mode="deg">DEG</button>
+            <button class="angle-btn active" id="radBtn" data-mode="rad">RAD</button>
+        </div>
+    </div>
+    
+    <script src="calculator.js"></script>
+</body>
+</html>
