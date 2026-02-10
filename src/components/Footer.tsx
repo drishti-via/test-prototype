@@ -4,6 +4,7 @@ export default function Footer() {
   const footerLinks = {
     product: [
       { href: '/calculator', label: 'Calculator' },
+      { href: '/converter', label: 'Converter' },
       { href: '/docs', label: 'Documentation' },
       { href: '/blog', label: 'Blog' },
     ],
