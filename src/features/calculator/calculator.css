@@ -1,16 +1,26 @@
 /* Calculator Component Styles */
 .calculator {
-  background: #1a1a2e;
+  background: var(--color-surface);
   border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--glass-shadow);
   max-width: 400px;
   width: 100%;
+  transition: background var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* Apple theme glass effect */
+[data-theme="apple"] .calculator {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 .toggle-btn {
-  background: #4a4a6a;
-  color: #fff;
+  background: var(--color-button-toggle);
+  color: var(--color-text);
   border: none;
   padding: 12px 20px;
   border-radius: 10px;
@@ -18,7 +28,7 @@
   width: 100%;
   font-size: 0.95rem;
   margin-bottom: 15px;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +36,7 @@
 }
 
 .toggle-btn:hover {
-  background: #5a5a7a;
+  background: var(--color-button-toggle-hover);
   transform: translateY(-2px);
 }
 
@@ -37,7 +47,7 @@
 .scientific-panel {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition: max-height var(--transition-normal), padding var(--transition-normal);
   margin-bottom: 0;
   display: flex;
   gap: 10px;
@@ -51,22 +61,28 @@
 }
 
 .display {
-  background: #0f0f1a;
+  background: var(--color-surface-2);
   border-radius: 15px;
   padding: 20px;
   margin-bottom: 20px;
-  border: 2px solid #2a2a4a;
+  border: 2px solid var(--color-border);
+  transition: background var(--transition-normal), border-color var(--transition-normal);
+}
+
+[data-theme="apple"] .display {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--glass-border);
 }
 
 .display input {
   width: 100%;
   background: transparent;
   border: none;
-  color: #fff;
+  color: var(--color-text);
   font-size: 2rem;
   text-align: right;
   outline: none;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-family-mono), 'Courier New', monospace;
 }
 
 .buttons {
@@ -83,14 +99,18 @@
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
-  background: #2a2a4a;
-  color: #fff;
+  transition: all var(--transition-fast);
+  background: var(--color-button);
+  color: var(--color-text);
 }
 
 .btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="apple"] .btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .btn:active {
@@ -98,43 +118,45 @@
 }
 
 .btn:focus-visible {
-  outline: 2px solid #667eea;
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
 }
 
 .btn.number {
-  background: #3a3a5a;
+  background: var(--color-button-number);
 }
 
 .btn.operator {
-  background: #5a5a8a;
+  background: var(--color-button-operator);
 }
 
 .btn.scientific {
-  background: #ff6b6b;
+  background: var(--color-button-scientific);
   flex: 1;
   padding: 15px;
 }
 
 .btn.scientific:hover {
-  background: #ff5252;
+  background: var(--color-button-scientific-hover);
 }
 
 .btn.clear {
-  background: #e74c3c;
+  background: var(--color-button-clear);
+  color: #fff;
 }
 
 .btn.clear:hover {
-  background: #c0392b;
+  background: var(--color-button-clear-hover);
 }
 
 .btn.equals {
-  background: #00d4aa;
+  background: var(--color-button-equals);
+  color: #fff;
   grid-row: span 2;
 }
 
 .btn.equals:hover {
-  background: #00c49a;
+  background: var(--color-button-equals-hover);
 }
 
 .row-span-2 {
@@ -148,30 +170,30 @@
 }
 
 .angle-btn {
-  background: #2a2a4a;
-  color: #888;
+  background: var(--color-button-angle);
+  color: var(--color-muted);
   border: 2px solid transparent;
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
 }
 
 .angle-btn:focus-visible {
-  outline: 2px solid #667eea;
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
 }
 
 .angle-btn.active {
-  color: #00d4aa;
-  border-color: #00d4aa;
-  background: #1a1a3a;
+  color: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  background: var(--color-button-angle-active);
 }
 
 .angle-btn:hover:not(.active) {
-  color: #fff;
-  background: #3a3a5a;
+  color: var(--color-text);
+  background: var(--color-button-angle-hover);
 }
 
 /* Responsive design */

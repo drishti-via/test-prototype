@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="apple">
       <body className={inter.className}>
         <div className="layout-container">
           <Header />

@@ -45,7 +45,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white p-2"
+          className="mobile-menu-toggle"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
@@ -77,13 +77,13 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-dark-card border-t border-dark-border">
-          <div className="px-4 py-4 space-y-2">
+        <div className="mobile-menu open">
+          <div className="mobile-menu-content">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block py-2 px-4 text-gray-300 hover:bg-dark-border rounded-md transition-colors"
+                className="mobile-menu-link"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
