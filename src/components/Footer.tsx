@@ -31,6 +31,11 @@ export default function Footer() {
             <p className="mt-2 text-gray-400">
               A powerful scientific calculator for everyone.
             </p>
+            {/* Banana badge in footer */}
+            <span className="inline-flex items-center gap-1 mt-2 px-2 py-1 rounded-full bg-dark-card border border-dark-border transition-all duration-300 opacity-0 scale-95" data-banana-badge-inline>
+              <span className="text-sm dark:text-gray-400">🍌</span>
+              <span className="text-xs font-medium text-gray-400">Banana Theme</span>
+            </span>
           </div>
 
           {/* Product Links */}
@@ -72,7 +77,10 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} CalcMaster. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} CalcMaster. All rights reserved.
+          <span className="footer-banana-icon ml-2">🍌</span>
+        </p>
       </div>
     </footer>
   )
