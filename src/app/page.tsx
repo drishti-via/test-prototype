@@ -4,11 +4,17 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-section bg-gradient-primary">
+      <section className="hero-section bg-gradient-primary transition-all duration-500" id="hero-section">
         <div className="page-section">
+          <div className="mb-4">
+            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-dark-card/50 border border-dark-border/50 backdrop-blur-sm transition-all duration-300" data-hero-banana-badge>
+              <span className="text-base">🍌</span>
+              <span className="text-sm font-medium text-gray-300">Try Banana Theme!</span>
+            </span>
+          </div>
           <h1 className="hero-title">
             Scientific Calculator<br />
-            <span className="text-primary-400">Made Simple</span>
+            <span className="text-primary-400 transition-colors duration-300" id="hero-accent">Made Simple</span>
           </h1>
           <p className="hero-subtitle">
             A powerful, easy-to-use online calculator with advanced mathematical functions.

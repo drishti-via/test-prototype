@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -30,21 +31,31 @@ export default function Header() {
           CalcMaster
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="nav-menu">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="nav-link"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+        {/* Banana Badge - visible in banana theme */}
+        <span className="hidden md:inline-flex items-center gap-1 ml-3 px-2 py-1 rounded-full bg-dark-card border border-dark-border transition-all duration-300 opacity-0 scale-95" data-banana-badge>
+          <span className="text-sm dark:text-gray-400">🍌</span>
+          <span className="text-xs font-medium text-gray-400">Banana Mode</span>
+        </span>
 
-        {/* Mobile Menu Button */}
-        <button
+        {/* Desktop Navigation */}
+        <div className="flex items-center gap-4">
+          <div className="nav-menu">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="nav-link"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Theme Toggle */}
+          <ThemeToggle />
+
+          {/* Mobile Menu Button */}
+          <button
           className="md:hidden text-white p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
@@ -89,6 +100,9 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <div className="pt-2">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       )}

@@ -5,7 +5,7 @@ import '@/features/calculator/calculator.css'
 
 export default function CalculatorPage() {
   return (
-    <div className="min-h-screen bg-gradient-primary">
+    <div className="min-h-screen bg-gradient-primary transition-all duration-500" id="calculator-page">
       <div className="page-section">
         <div className="flex flex-col items-center justify-center py-12">
           <h1 className="text-4xl font-bold text-white text-center mb-4">

@@ -16,6 +16,25 @@
   --color-red: #e74c3c;
   --color-blue: #ff6b6b;
 
+  /* Banana theme colors */
+  --color-banana-50: #fff9e6;
+  --color-banana-100: #fff0b3;
+  --color-banana-200: #ffe580;
+  --color-banana-300: #ffda4d;
+  --color-banana-400: #F7D633;
+  --color-banana-500: #E8C525;
+  --color-banana-600: #C9A715;
+  --color-banana-brown: #8B7355;
+  --color-banana-green: #9CB071;
+  --color-banana-peel: #A67B5B;
+
+  /* Theme accent colors (computed based on data-theme attribute) */
+  --color-accent: 255, 255, 255; /* Default - will be overridden in theme selectors */
+  --color-accent-hover: 0, 0, 0;
+  --color-accent-contrast: 0, 0, 0;
+  --color-accent-light: 255, 255, 255;
+  --color-accent-light-bg: 0, 0, 0;
+
   /* Spacing */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -51,9 +70,34 @@ html {
 
 body {
   font-family: var(--font-family-sans);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
   color: var(--color-dark-text);
+}
+
+/* Default theme */
+html[data-theme="default"] body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+html[data-theme="default"] {
+  --color-accent: 102, 126, 234; /* Primary blue */
+  --color-accent-hover: 90, 103, 216;
+  --color-accent-contrast: 255, 255, 255;
+  --color-accent-light: 240, 244, 255;
+  --color-accent-light-bg: 102, 126, 234;
+}
+
+/* Banana theme */
+html[data-theme="banana"] body {
+  background: linear-gradient(135deg, #ffe580 0%, #f7d633 30%, #e8c525 70%, #fff9e6 100%);
+}
+
+html[data-theme="banana"] {
+  --color-accent: 247, 214, 51; /* Banana yellow */
+  --color-accent-hover: 201, 167, 21;
+  --color-accent-contrast: 15, 15, 26;
+  --color-accent-light: 255, 249, 230;
+  --color-accent-light-bg: 247, 214, 51;
 }
 
 a {

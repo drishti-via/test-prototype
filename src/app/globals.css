@@ -23,6 +23,11 @@ body {
 /* Header styles */
 .header {
   @apply sticky top-0 z-50 bg-dark-bg/90 backdrop-blur-sm border-b border-dark-border;
+  transition: border-color var(--transition-normal);
+}
+
+html[data-theme="banana"] .header {
+  border-color: rgba(247, 214, 51, 0.3);
 }
 
 .header-content {
@@ -35,6 +40,77 @@ body {
   @apply hover:text-primary-400 transition-colors duration-200;
 }
 
+html[data-theme="banana"] .logo {
+  color: #E8C525;
+}
+
+html[data-theme="banana"] .logo:hover {
+  color: #F7D633;
+}
+
+/* Banana badge visibility */
+[data-banana-badge] {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+html[data-theme="banana"] [data-banana-badge] {
+  opacity: 1;
+  transform: scale(1);
+  border-color: #F7D633;
+  background-color: rgba(247, 214, 51, 0.1);
+}
+
+html[data-theme="banana"] [data-banana-badge-inline] {
+  opacity: 1;
+  transform: scale(1);
+  border-color: #F7D633;
+}
+
+/* Footer banana icon */
+.footer-banana-icon {
+  display: none;
+  transition: all var(--transition-normal);
+}
+
+html[data-theme="banana"] .footer-banana-icon {
+  display: inline;
+}
+
+/* Hero section banana theme */
+html[data-theme="banana"] #hero-section {
+  background: linear-gradient(135deg, #fff9e6 0%, #ffe580 20%, #f7d633 50%, #e8c525 80%, #fff9e6 100%);
+}
+
+html[data-theme="banana"] #hero-accent {
+  color: #8B7355;
+}
+
+html[data-theme="banana"] [data-hero-banana-badge] {
+  background: rgba(139, 115, 85, 0.3);
+  border-color: #F7D633;
+  color: #0f0f1a;
+}
+
+html[data-theme="banana"] [data-hero-banana-badge] span:last-child {
+  color: #0f0f1a;
+  font-weight: 600;
+}
+
+/* Calculator page banana theme */
+html[data-theme="banana"] #calculator-page {
+  background: linear-gradient(180deg, #fff9e6 0%, #ffe580 30%, #f7d633 60%, #e8c525 100%);
+}
+
+html[data-theme="banana"] #calculator-page h1,
+html[data-theme="banana"] #calculator-page h2 {
+  color: #0f0f1a;
+}
+
+html[data-theme="banana"] #calculator-page p {
+  color: rgba(15, 15, 26, 0.8);
+}
+
 .nav-menu {
   @apply hidden md:flex items-center space-x-8;
 }
@@ -45,6 +121,10 @@ body {
 
 .nav-link:hover {
   @apply text-primary-400;
+}
+
+html[data-theme="banana"] .nav-link:hover {
+  color: #F7D633;
 }
 
 /* Footer styles */
@@ -101,6 +181,10 @@ body {
   @apply p-6 hover:border-primary-500/50 transition-all duration-300;
 }
 
+html[data-theme="banana"] .card:hover {
+  border-color: rgba(247, 214, 51, 0.5);
+}
+
 .card-title {
   @apply text-xl font-semibold text-white mb-2;
 }
@@ -118,6 +202,16 @@ body {
 
 .btn-primary {
   @apply bg-primary-600 text-white hover:bg-primary-700;
+  transition: background-color var(--transition-normal), transform var(--transition-fast);
+}
+
+html[data-theme="banana"] .btn-primary {
+  background-color: #E8C525;
+  color: #0f0f1a;
+}
+
+html[data-theme="banana"] .btn-primary:hover {
+  background-color: #F7D633;
 }
 
 .btn-secondary {

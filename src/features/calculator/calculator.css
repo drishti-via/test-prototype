@@ -6,6 +6,12 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   max-width: 400px;
   width: 100%;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+html[data-theme="banana"] .calculator {
+  border: 2px solid rgba(247, 214, 51, 0.3);
+  box-shadow: 0 20px 60px rgba(247, 214, 51, 0.15);
 }
 
 .toggle-btn {
@@ -28,6 +34,16 @@
 .toggle-btn:hover {
   background: #5a5a7a;
   transform: translateY(-2px);
+}
+
+html[data-theme="banana"] .toggle-btn {
+  background: #8B7355;
+  border: 2px solid rgba(247, 214, 51, 0.5);
+}
+
+html[data-theme="banana"] .toggle-btn:hover {
+  background: #A67B5B;
+  border-color: #F7D633;
 }
 
 .toggle-btn:active {
@@ -102,12 +118,26 @@
   outline-offset: 2px;
 }
 
+html[data-theme="banana"] .btn:focus-visible {
+  outline-color: #F7D633;
+}
+
 .btn.number {
   background: #3a3a5a;
 }
 
 .btn.operator {
   background: #5a5a8a;
+}
+
+html[data-theme="banana"] .btn.number {
+  background: #2a2a4a;
+  border: 1px solid rgba(247, 214, 51, 0.3);
+}
+
+html[data-theme="banana"] .btn.operator {
+  background: #8B7355;
+  border: 1px solid rgba(247, 214, 51, 0.4);
 }
 
 .btn.scientific {
@@ -120,12 +150,29 @@
   background: #ff5252;
 }
 
+html[data-theme="banana"] .btn.scientific {
+  background: #A67B5B;
+}
+
+html[data-theme="banana"] .btn.scientific:hover {
+  background: #8B7355;
+}
+
 .btn.clear {
   background: #e74c3c;
 }
 
 .btn.clear:hover {
   background: #c0392b;
+}
+
+html[data-theme="banana"] .btn.clear {
+  background: #C9A715;
+  color: #0f0f1a;
+}
+
+html[data-theme="banana"] .btn.clear:hover {
+  background: #E8C525;
 }
 
 .btn.equals {
@@ -135,6 +182,14 @@
 
 .btn.equals:hover {
   background: #00c49a;
+}
+
+html[data-theme="banana"] .btn.equals {
+  background: #9CB071;
+}
+
+html[data-theme="banana"] .btn.equals:hover {
+  background: #B8C996;
 }
 
 .row-span-2 {
@@ -163,10 +218,20 @@
   outline-offset: 2px;
 }
 
+html[data-theme="banana"] .angle-btn:focus-visible {
+  outline-color: #F7D633;
+}
+
 .angle-btn.active {
   color: #00d4aa;
   border-color: #00d4aa;
   background: #1a1a3a;
+}
+
+html[data-theme="banana"] .angle-btn.active {
+  color: #9CB071;
+  border-color: #9CB071;
+  background: rgba(156, 176, 113, 0.1);
 }
 
 .angle-btn:hover:not(.active) {

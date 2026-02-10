@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { ThemeProvider } from '@/components/ThemeProvider'
 import { initializeLogger } from '@/lib/logger'
 
 // Initialize logger once at app startup
@@ -35,13 +36,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="layout-container">
-          <Header />
-          <main className="main-content">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <ThemeProvider>
+          <div className="layout-container">
+            <Header />
+            <main className="main-content">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )
