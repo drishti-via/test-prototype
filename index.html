@@ -10,6 +10,24 @@
     <meta property="og:description" content="A powerful scientific calculator with advanced functions." />
     <meta property="og:type" content="website" />
     <title>Scientific Calculator - Free Online Math Tool</title>
+    <!-- Theme initialization script -->
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('theme');
+          var theme = stored;
+          if (!theme) {
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            theme = prefersDark ? 'dark' : 'apple';
+          }
+          if (theme === 'apple') {
+            document.documentElement.setAttribute('data-theme', 'apple');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -6,6 +6,9 @@
   --color-border: #2a2a4a;
   --color-text: #ffffff;
   --color-muted: #888888;
+  
+  /* Color scheme for native browser controls */
+  color-scheme: dark;
 
   --color-primary-50: #f0f4ff;
   --color-primary-500: #667eea;
@@ -80,6 +83,9 @@
   --color-border: #d2d2d7;
   --color-text: #1d1d1f;
   --color-muted: #86868b;
+  
+  /* Color scheme for native browser controls */
+  color-scheme: light;
 
   /* iOS Blue for primary actions */
   --color-primary-500: #007aff;
@@ -130,7 +136,7 @@ body {
   font-family: var(--font-family-sans);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
-  color: var(--color-dark-text);
+  color: var(--color-text);
   transition: background var(--transition-normal), color var(--transition-normal);
 }
 
