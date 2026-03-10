@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createMemoryRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './app/page'
 import Calculator from './app/calculator/page'
 import About from './app/about/page'
@@ -10,7 +10,7 @@ import NotFound from './app/not-found'
 import Layout from './app/layout'
 import './app/globals.css'
 
-const router = createMemoryRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
@@ -20,7 +20,7 @@ const router = createMemoryRouter([
       { path: 'about', element: <About /> },
       { path: 'contact', element: <Contact /> },
       { path: 'docs', element: <Docs /> },
-      { path: '*' , element: <NotFound /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ])
