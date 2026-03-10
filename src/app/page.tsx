@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
@@ -15,10 +15,10 @@ export default function Home() {
             Perfect for students, engineers, and professionals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/calculator" className="btn btn-primary">
+            <Link to="/calculator" className="btn btn-primary">
               Try Calculator
             </Link>
-            <Link href="/docs" className="btn btn-secondary">
+            <Link to="/docs" className="btn btn-secondary">
               View Documentation
             </Link>
           </div>
@@ -67,7 +67,7 @@ export default function Home() {
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
             Start using our scientific calculator now. It's free, fast, and works in your browser.
           </p>
-          <Link href="/calculator" className="btn btn-primary">
+          <Link to="/calculator" className="btn btn-primary">
             Launch Calculator
           </Link>
         </div>
