@@ -49,6 +49,7 @@ Once running, the dev server will be accessible via:
 - Host allowlist is configured for **development mode only** (when running `vite serve`)
 - Private IP ranges are automatically permitted for local network access
 - This configuration does NOT apply to production builds
+- Project uses Vite, not Next.js (next.config.js files should not exist in this project)
 
 ### Firewall Considerations
 
