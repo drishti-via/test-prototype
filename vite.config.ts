@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
   resolve: {
     alias: {
@@ -11,7 +11,18 @@ export default defineConfig({
     },
   },
   server: {
-    host: '0.0.0.0',
+    // Try port 5173 first, but allow supervisor to find another if needed
+    host: '127.0.0.1',
     port: 5173,
+    strictPort: false,
+    // Development-only: allow localhost variants
+    ...(command === 'serve' && {
+      allowedHosts: [
+        'localhost',
+        '127.0.0.1',
+        '::1',
+        '.localhost',
+      ],
+    }),
   },
-})
+}))
