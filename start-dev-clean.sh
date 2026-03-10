@@ -15,4 +15,4 @@ if curl -s -f http://127.0.0.1:5173/ > /dev/null 2>&1; then
 fi
 
 echo "No server responding, starting fresh..."
-npx vite --host 127.0.0.1 --port 5173
+npx vite --host 0.0.0.0 --port 5173
