@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { createCalculator, CalculatorState } from './engine'
+import { createCalculator } from './engine'
 import { createLogger } from '@/lib/logger'
 
 const logger = createLogger('CalculatorWidget')
