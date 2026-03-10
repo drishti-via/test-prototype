@@ -11,8 +11,7 @@ export default defineConfig(({ command }) => ({
     },
   },
   server: {
-    // Try port 5173 first, but allow supervisor to find another if needed
-    host: '127.0.0.1',
+    host: '0.0.0.0',
     port: 5173,
     strictPort: false,
     // Development-only: allow localhost variants
