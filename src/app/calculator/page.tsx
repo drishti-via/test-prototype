@@ -1,5 +1,3 @@
-'use client'
-
 import CalculatorWidget from '@/features/calculator/CalculatorWidget'
 import '@/features/calculator/calculator.css'
 

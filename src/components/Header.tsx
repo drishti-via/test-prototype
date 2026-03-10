@@ -1,7 +1,5 @@
-'use client'
-
-import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -26,7 +24,7 @@ export default function Header() {
   return (
     <nav className="header" role="navigation" aria-label="Main navigation">
       <div className="header-content">
-        <Link href="/" className="logo">
+        <Link to="/" className="logo">
           CalcMaster
         </Link>
 
@@ -35,7 +33,7 @@ export default function Header() {
           {navLinks.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               className="nav-link"
             >
               {link.label}
@@ -82,7 +80,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className="block py-2 px-4 text-gray-300 hover:bg-dark-border rounded-md transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >

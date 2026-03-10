@@ -1,0 +1,8 @@
+{
+  "framework": "vite",
+  "previewEnabled": true,
+  "devCommand": "npx vite --host 0.0.0.0 --port 5173",
+  "previewCommand": "npx vite preview --port 5173",
+  "buildCommand": "npm run build",
+  "buildOutputDir": "dist"
+}
