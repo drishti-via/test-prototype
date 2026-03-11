@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
 
 const blogPosts: Record<string, any> = {
   'introducing-scientific-calculator': {
@@ -288,10 +287,23 @@ Happy calculating! 🚀
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = blogPosts[params.slug]
+  const slug = params?.slug?.trim()
+  const post = blogPosts[slug || '']
 
   if (!post) {
-    notFound()
+    return (
+      <div className="min-h-screen bg-dark-bg flex items-center justify-center">
+        <div className="text-center px-4 max-w-lg">
+          <h1 className="text-4xl font-bold text-white mb-4">Error: detail not found</h1>
+          <p className="text-xl text-gray-400 mb-8">
+            This blog post could not be found.
+          </p>
+          <Link href="/blog" className="btn btn-primary">
+            Back to Blog
+          </Link>
+        </div>
+      </div>
+    )
   }
 
   return (
