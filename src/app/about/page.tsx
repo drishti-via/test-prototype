@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 
 export default function AboutPage() {
   const features = [
@@ -148,10 +148,10 @@ export default function AboutPage() {
               Try our calculator today and experience the difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/calculator" className="btn btn-primary">
+              <Link to="/calculator" className="btn btn-primary">
                 Launch Calculator
               </Link>
-              <Link href="/docs" className="btn btn-secondary">
+              <Link to="/docs" className="btn btn-secondary">
                 Read the Docs
               </Link>
             </div>

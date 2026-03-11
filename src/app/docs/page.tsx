@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 
 export default function DocsPage() {
   const docs = [
@@ -37,7 +37,7 @@ export default function DocsPage() {
             {docs.map((doc) => (
               <Link
                 key={doc.href}
-                href={doc.href}
+                to={doc.href}
                 className="card hover:border-primary-500/50 transition-all duration-300"
               >
                 <div className="text-4xl mb-4">{doc.icon}</div>
