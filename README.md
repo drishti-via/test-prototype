@@ -11,9 +11,11 @@ A React-based scientific calculator web application built with Vite.
 
 ## Development Server
 
-The development server is configured to accept connections from:
-- Localhost variants: `localhost`, `127.0.0.1`, `::1`, `.localhost`
-- Local network access: All requests from private IP ranges (192.168.x.x, 10.x.x.x, 172.16.x.x, etc.)
+The development server is configured for external preview access and accepts connections from all hosts in development mode.
+
+### Why Allow All Hosts?
+
+External preview URLs (such as those used in cloud sandboxes and development environments) often use non-localhost hostnames. By default, Vite blocks requests from unknown hosts with a "Host not allowed" error. Running in development mode, this project allows all hosts to support external preview access without configuration changes.
 
 ### Starting the Dev Server
 
@@ -46,9 +48,9 @@ Once running, the dev server will be accessible via:
 ### Network Configuration
 
 - The development server binds to `0.0.0.0` to accept external connections
-- Host allowlist is configured for **development mode only** (when running `vite serve`)
-- Private IP ranges are automatically permitted for local network access
-- This configuration does NOT apply to production builds
+- **All hosts are allowed in development mode** to support external preview URLs
+- This relaxed host validation is **development-mode only** for convenience
+- Production builds are unaffected by this configuration
 - Project uses Vite, not Next.js (next.config.js files should not exist in this project)
 
 ### Firewall Considerations
