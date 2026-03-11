@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 
 const blogPosts: Record<string, any> = {
   'introducing-scientific-calculator': {
@@ -298,7 +298,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <p className="text-xl text-gray-400 mb-8">
             This blog post could not be found.
           </p>
-          <Link href="/blog" className="btn btn-primary">
+          <Link to="/blog" className="btn btn-primary">
             Back to Blog
           </Link>
         </div>
@@ -311,7 +311,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <div className="page-section">
         <div className="max-w-4xl mx-auto">
           <Link
-            href="/blog"
+            to="/blog"
             className="text-primary-400 hover:text-primary-300 transition-colors mb-8 inline-block"
           >
             ← Back to Blog

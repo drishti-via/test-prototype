@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 
 const blogPosts = [
   {
@@ -47,7 +47,7 @@ export default function BlogPage() {
             {blogPosts.map((post) => (
               <Link
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                to={`/blog/${post.slug}`}
                 className="card block hover:border-primary-500/50 transition-all duration-300"
               >
                 <div className="flex items-center gap-2 mb-3">

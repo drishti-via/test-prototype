@@ -1,6 +1,7 @@
-import { MetadataRoute } from 'next'
+// Sitemap disabled for Vite build
+// import { MetadataRoute } from 'next'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default function sitemap() {
   const baseUrl = 'https://calcmaster.com'
   const lastModified = new Date()
 

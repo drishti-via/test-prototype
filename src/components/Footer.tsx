@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   const footerLinks = {
@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand Section */}
           <div className="footer-section">
-            <Link href="/" className="text-2xl font-bold text-white hover:text-primary-400 transition-colors">
+            <Link to="/" className="text-2xl font-bold text-white hover:text-primary-400 transition-colors">
               CalcMaster
             </Link>
             <p className="mt-2 text-gray-400">
@@ -39,7 +39,7 @@ export default function Footer() {
             <ul>
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link to={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -51,7 +51,7 @@ export default function Footer() {
             <ul>
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link to={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -63,7 +63,7 @@ export default function Footer() {
             <ul>
               {footerLinks.resources.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link to={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>

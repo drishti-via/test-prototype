@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 
 export default function KeyboardShortcutsPage() {
   const categories = [
@@ -34,7 +34,7 @@ export default function KeyboardShortcutsPage() {
       <div className="page-section">
         <div className="max-w-4xl mx-auto">
           <Link
-            href="/docs"
+            to="/docs"
             className="text-primary-400 hover:text-primary-300 transition-colors mb-8 inline-block"
           >
             ← Back to Documentation

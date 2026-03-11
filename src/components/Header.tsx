@@ -1,6 +1,4 @@
-'use client'
-
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 export default function Header() {
@@ -26,7 +24,7 @@ export default function Header() {
   return (
     <nav className="header" role="navigation" aria-label="Main navigation">
       <div className="header-content">
-        <Link href="/" className="logo">
+        <Link to="/" className="logo">
           CalcMaster
         </Link>
 
@@ -35,7 +33,7 @@ export default function Header() {
           {navLinks.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               className="nav-link"
             >
               {link.label}
@@ -82,7 +80,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className="block py-2 px-4 text-gray-300 hover:bg-dark-border rounded-md transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
